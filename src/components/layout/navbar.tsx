@@ -29,8 +29,15 @@ export function Navbar() {
   const showGlass = isScrolled || !isHome;
 
   return (
-    <header className={cn("pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8  transition-all duration-700 ease-out", showGlass ? "glass-luxury px-6 py-3 lg:px-8" : "bg-transparent px-2 py-5")}>
-      <nav className="pointer-events-auto relative mx-auto flex max-w-7xl items-center justify-between">
+    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
+      <nav
+        className={cn(
+          "pointer-events-auto relative mx-auto flex max-w-7xl items-center justify-between transition-all duration-700 ease-out",
+          showGlass
+            ? "glass-luxury rounded-2xl px-6 py-3 lg:px-8"
+            : "bg-transparent px-2 py-5",
+        )}
+      >
         <Logo variant={showGlass ? "dark" : "light"} size="md" />
 
         <div className="hidden items-center gap-9 lg:flex">
@@ -93,9 +100,6 @@ export function Navbar() {
             className="pointer-events-auto mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl glass-nav lg:hidden"
           >
             <div className="flex flex-col p-4">
-              <div className="mb-4 px-2">
-                <Logo variant="dark" size="sm" href="/" />
-              </div>
               {siteConfig.navLinks.map((link) => (
                 <Link
                   key={link.href}
