@@ -18,7 +18,10 @@ export function HeroSection() {
   const contentY = useTransform(scrollYProgress, [0, 0.5], [0, 60]);
 
   return (
-    <section ref={ref} className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section
+      ref={ref}
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+    >
       <motion.div style={{ y: imageY }} className="absolute inset-0 scale-110">
         <Image
           src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80"
@@ -41,7 +44,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="label-luxury mb-8 inline-block text-gold"
+          className="label-luxury mb-8 inline-block text-white"
         >
           Premium Event Destination
         </motion.span>
@@ -66,7 +69,8 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.55 }}
-          className="body-luxury mx-auto max-w-2xl text-white/70"
+          className="body-luxury mx-auto max-w-2xl "
+          style={{ color: "#ffffff" }}
         >
           {siteConfig.tagline}
         </motion.p>
@@ -80,8 +84,12 @@ export function HeroSection() {
           <Button variant="default" size="lg" asChild>
             <Link href="/contact">Plan Your Event</Link>
           </Button>
-          <Button variant="outline-light" size="lg" asChild>
-            <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+          <Button variant="outlineLight" size="lg" asChild>
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               WhatsApp Us
             </a>
           </Button>

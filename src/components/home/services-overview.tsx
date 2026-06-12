@@ -52,7 +52,7 @@ export function ServicesOverview() {
         </StaggerChildren>
 
         <div className="mt-16 text-center">
-          <Button variant="gold" asChild>
+          <Button variant="outlineLight" asChild>
             <Link href="/services">View All Services</Link>
           </Button>
         </div>

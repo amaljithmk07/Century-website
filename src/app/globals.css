@@ -39,6 +39,21 @@
   --color-charcoal-muted: #999999;
 }
 
+@font-face {
+  font-family: "Variane Craina";
+  src:
+    url("/fonts/VarianeCraina.woff2") format("woff2"),
+    url("/fonts/VarianeCraina.woff") format("woff"),
+    url("/fonts/VarianeCraina.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-title {
+  font-family: "Variane Craina", "Inter", "Segoe UI", sans-serif;
+}
+
 .premium-card {
   @apply relative overflow-hidden bg-white transition-all duration-700 ease-out;
   box-shadow: 0 4px 40px rgba(27, 27, 29, 0.06);
@@ -90,12 +105,14 @@ body {
 
 /* ── Typography ── */
 .heading-display {
-  font-family: var(--font-display), Georgia, serif;
+  /* font-family: var(--font-display), Georgia, serif; */
+  font-family: "Variane Craina", serif;
   @apply text-[2.5rem] font-normal leading-[1.08] tracking-[-0.02em] sm:text-5xl lg:text-[4.5rem];
 }
 
 .heading-section {
   font-family: var(--font-display), Georgia, serif;
+  /* font-family: "Variane Craina", serif; */
   @apply text-3xl font-normal leading-[1.12] tracking-[-0.01em] sm:text-4xl lg:text-[3.5rem];
 }
 
@@ -148,9 +165,9 @@ body {
 .hero-overlay {
   background: linear-gradient(
     180deg,
-    rgba(27, 27, 29, 0.55) 0%,
-    rgba(27, 27, 29, 0.35) 40%,
-    rgba(27, 27, 29, 0.75) 100%
+    rgba(27, 27, 29, 0.7) 0%,
+    rgba(27, 27, 29, 0.5) 40%,
+    rgba(27, 27, 29, 0.9) 100%
   );
 }
 
@@ -239,4 +256,11 @@ body {
 .swiper-button-next,
 .swiper-button-prev {
   color: #c7a56a !important;
+}
+
+.glass-luxury {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
 }

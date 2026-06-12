@@ -29,15 +29,8 @@ export function Navbar() {
   const showGlass = isScrolled || !isHome;
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-      <nav
-        className={cn(
-          "pointer-events-auto mx-auto flex max-w-6xl items-center justify-between transition-all duration-700 ease-out",
-          showGlass
-            ? "glass-nav rounded-2xl px-5 py-3 lg:px-8 lg:py-3.5"
-            : "bg-transparent px-2 py-4 lg:px-4"
-        )}
-      >
+    <header className={cn("pointer-events-none fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8  transition-all duration-700 ease-out", showGlass ? "glass-luxury px-6 py-3 lg:px-8" : "bg-transparent px-2 py-5")}>
+      <nav className="pointer-events-auto relative mx-auto flex max-w-7xl items-center justify-between">
         <Logo variant={showGlass ? "dark" : "light"} size="md" />
 
         <div className="hidden items-center gap-9 lg:flex">
@@ -55,7 +48,7 @@ export function Navbar() {
                       : "text-gold"
                     : showGlass
                       ? "text-text-secondary hover:text-burgundy"
-                      : "text-white/75 hover:text-white"
+                      : "text-white/75 hover:text-white",
                 )}
               >
                 {link.label}
@@ -69,7 +62,7 @@ export function Navbar() {
               </Link>
             );
           })}
-          <Button variant={showGlass ? "default" : "gold"} size="sm" asChild>
+          <Button variant={ "gold"} size="sm" asChild>
             <Link href="/contact">Inquire</Link>
           </Button>
         </div>
@@ -77,12 +70,16 @@ export function Navbar() {
         <button
           className={cn(
             "lg:hidden p-2 transition-colors",
-            showGlass ? "text-burgundy" : "text-white"
+            showGlass ? "text-burgundy" : "text-white",
           )}
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label={isMobileOpen ? "Close menu" : "Open menu"}
         >
-          {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {isMobileOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
         </button>
       </nav>
 
@@ -107,7 +104,7 @@ export function Navbar() {
                     "rounded-xl px-4 py-3.5 text-sm font-medium transition-colors",
                     pathname === link.href
                       ? "bg-cream text-burgundy"
-                      : "text-text-secondary hover:bg-cream/60 hover:text-burgundy"
+                      : "text-text-secondary hover:bg-cream/60 hover:text-burgundy",
                   )}
                 >
                   {link.label}

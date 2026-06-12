@@ -30,7 +30,7 @@ export function CTASection() {
           >
             <span className="label-luxury mb-8 block text-gold">Begin Your Journey</span>
             <h2 className="heading-section mx-auto max-w-3xl text-white">
-              Ready to Create an Unforgettable Celebration?
+              Ready to Create an Unforgettable Celebration
             </h2>
             <div className="divider-ornate mx-auto mt-10 mb-10 max-w-xs justify-center">
               <span className="divider-ornate-center" />
@@ -43,7 +43,7 @@ export function CTASection() {
               <Button variant="gold" size="lg" asChild>
                 <Link href="/contact">Send an Inquiry</Link>
               </Button>
-              <Button variant="outline-light" size="lg" asChild>
+              <Button variant="outlineLight" size="lg" asChild>
                 <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
                   Chat on WhatsApp
                 </a>

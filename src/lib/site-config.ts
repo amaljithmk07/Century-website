@@ -1,7 +1,13 @@
 export const siteConfig = {
   name: "Century Convention Center",
   logo: {
-    src: "/logo.svg",
+    src: "/images/logo.svg",
+    alt: "Century Convention Center",
+    width: 180,
+    height: 57,
+  },
+  logoWhite: {
+    src: "/images/logo-white.svg",
     alt: "Century Convention Center",
     width: 180,
     height: 57,

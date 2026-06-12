@@ -26,7 +26,7 @@ export function IntroSection() {
           <FadeIn direction="right" delay={0.15}>
             <SectionHeader
               label="About Us"
-              title="A Legacy of Elegance & Grandeur"
+              title="A Legacy of Elegance And Grandeur"
               align="left"
             />
             <p className="body-luxury mb-6">

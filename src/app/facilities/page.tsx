@@ -18,7 +18,7 @@ export default function FacilitiesPage() {
     <>
       <PageHero
         title="Our Facilities"
-        subtitle="World-class amenities for flawless events"
+        subtitle="Worl -class amenities for flawless events"
         image="https://images.unsplash.com/photo-1505236858219-8359eb2e4c0b?w=1920&q=80"
       />
 

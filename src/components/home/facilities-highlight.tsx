@@ -48,7 +48,7 @@ export function FacilitiesHighlight() {
         </StaggerChildren>
 
         <div className="mt-16 text-center">
-          <Button variant="outline" asChild>
+          <Button variant="gold" asChild>
             <Link href="/facilities">Explore All Facilities</Link>
           </Button>
         </div>

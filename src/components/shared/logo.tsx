@@ -27,16 +27,11 @@ export function Logo({
   const image = (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={siteConfig.logo.src}
+      src={variant === "dark" ? siteConfig.logo.src : siteConfig.logoWhite.src}
       alt={siteConfig.logo.alt}
       width={siteConfig.logo.width}
       height={siteConfig.logo.height}
-      className={cn(
-        "object-contain object-left",
-        sizeMap[size],
-        variant === "dark" && "brightness-0 opacity-[0.88]",
-        className
-      )}
+      className={cn("object-contain object-left", sizeMap[size], className)}
     />
   );
 
@@ -45,7 +40,11 @@ export function Logo({
   }
 
   return (
-    <Link href={href} className="inline-flex shrink-0 items-center" aria-label={siteConfig.name}>
+    <Link
+      href={href}
+      className="inline-flex shrink-0 items-center"
+      aria-label={siteConfig.name}
+    >
       {image}
     </Link>
   );

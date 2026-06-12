@@ -48,7 +48,8 @@ export const services: Service[] = [
     description:
       "Create the wedding of your dreams in our elegantly appointed halls with bespoke décor and impeccable service.",
     icon: Heart,
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
   },
   {
     slug: "receptions",
@@ -56,7 +57,8 @@ export const services: Service[] = [
     description:
       "Celebrate your special day with grand receptions featuring spacious layouts and premium dining arrangements.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80",
   },
   {
     slug: "corporate-events",
@@ -64,7 +66,8 @@ export const services: Service[] = [
     description:
       "Host impactful corporate gatherings with professional ambiance and state-of-the-art facilities.",
     icon: Briefcase,
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
   },
   {
     slug: "conferences",
@@ -72,7 +75,8 @@ export const services: Service[] = [
     description:
       "Conduct seamless conferences with advanced AV systems, comfortable seating, and dedicated support staff.",
     icon: Presentation,
-    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80",
   },
   {
     slug: "seminars",
@@ -80,7 +84,8 @@ export const services: Service[] = [
     description:
       "Ideal venue for educational seminars and workshops with flexible seating and presentation capabilities.",
     icon: GraduationCap,
-    image: "https://images.unsplash.com/photo-1505373877841-8d25f39d4666?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1505373877841-8d25f39d4666?w=800&q=80",
   },
   {
     slug: "exhibitions",
@@ -88,7 +93,8 @@ export const services: Service[] = [
     description:
       "Showcase products and innovations in our expansive halls with excellent visibility and foot traffic flow.",
     icon: LayoutGrid,
-    image: "https://images.unsplash.com/photo-1505373877841-8d25f39d4666?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1505373877841-8d25f39d4666?w=800&q=80",
   },
   {
     slug: "social-gatherings",
@@ -96,7 +102,8 @@ export const services: Service[] = [
     description:
       "From birthday celebrations to anniversaries, create memorable moments in a luxurious setting.",
     icon: PartyPopper,
-    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80",
   },
   {
     slug: "community-events",
@@ -104,7 +111,8 @@ export const services: Service[] = [
     description:
       "Bring communities together for cultural programs, fundraisers, and local celebrations.",
     icon: Handshake,
-    image: "https://images.unsplash.com/photo-1523580495183-7a0f5a4c1acf?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1523580495183-7a0f5a4c1acf?w=800&q=80",
   },
 ];
 
@@ -112,65 +120,74 @@ export const facilities: Facility[] = [
   {
     title: "Grand Convention Hall",
     description:
-      "A magnificent hall with soaring ceilings, crystal chandeliers, and elegant interiors designed for grand celebrations.",
+      "A magnificent hall with soaring ceilings, elegant interiors, and versatile layouts designed for weddings, receptions, and large-scale events.",
     icon: Building2,
-    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&q=80",
   },
   {
     title: "Seating Capacity",
     description:
-      "Flexible seating arrangements accommodating up to 1,500 guests with theater, banquet, and classroom configurations.",
+      "Flexible seating arrangements accommodating up to 1,500 guests with banquet, theater, and conference-style configurations.",
     icon: Users,
-    image: "https://images.unsplash.com/photo-1505236858219-8359eb2e4c0b?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1200&q=80",
   },
   {
     title: "Air-Conditioned Venue",
     description:
-      "Fully climate-controlled environment ensuring guest comfort throughout your event, regardless of season.",
+      "Fully climate-controlled halls ensuring exceptional comfort for guests throughout the year.",
     icon: Snowflake,
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099f26?w=800&q=80",
+    image:
+    "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80",
   },
   {
     title: "Spacious Parking",
     description:
-      "Ample parking space for 200+ vehicles with dedicated valet service and easy access for all guests.",
+      "Ample parking facilities with easy vehicle access and dedicated areas for guests and event organizers.",
     icon: Car,
-    image: "https://images.unsplash.com/photo-1590674899480-d3d47dd59bcb?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=1200&q=80",
   },
   {
     title: "Dining Facilities",
     description:
-      "Premium in-house catering with multi-cuisine options, live counters, and elegant buffet arrangements.",
+      "Premium catering support with elegant buffet setups, live counters, and multi-cuisine dining experiences.",
     icon: UtensilsCrossed,
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1555244162-803834f70033?w=1200&q=80",
   },
   {
     title: "Stage Setup",
     description:
-      "Professional stage with customizable lighting, backdrop options, and green room facilities for performers.",
+      "Professionally designed stages with customizable décor, lighting arrangements, and backstage facilities.",
     icon: Mic2,
-    image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1200&q=80",
   },
   {
     title: "Audio & Visual Systems",
     description:
-      "State-of-the-art sound systems, LED screens, projectors, and wireless microphones for flawless presentations.",
+      "Modern sound systems, LED displays, projectors, and wireless presentation equipment for flawless events.",
     icon: Speaker,
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&q=80",
   },
   {
-    title: "Generator Backup",
+    title: "Power Backup",
     description:
-      "Uninterrupted power supply with industrial-grade generator backup for seamless event execution.",
+      "Reliable generator backup and uninterrupted power supply to ensure seamless event execution.",
     icon: Zap,
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80",
   },
   {
     title: "Guest Amenities",
     description:
-      "Premium restrooms, bridal suites, prayer rooms, and dedicated event coordination team at your service.",
+      "Premium guest facilities including bridal suites, lounge areas, restrooms, and dedicated event assistance.",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80",
   },
 ];
 
