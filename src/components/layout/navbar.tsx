@@ -13,6 +13,7 @@ import { Logo } from "@/components/shared/logo";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
@@ -43,12 +44,16 @@ export function Navbar() {
         <div className="hidden items-center gap-9 lg:flex">
           {siteConfig.navLinks.map((link) => {
             const isActive = pathname === link.href;
+            const isAnyHovered = hoveredLink !== null;
+            const isThisHovered = hoveredLink === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
+                onMouseEnter={() => setHoveredLink(link.href)}
+                onMouseLeave={() => setHoveredLink(null)}
                 className={cn(
-                  "relative py-1 text-[13px] font-medium tracking-wide transition-colors duration-300",
+                  "relative py-1 text-[18px] font-display font-medium tracking-wide transition-all duration-300",
                   isActive
                     ? showGlass
                       ? "text-burgundy"
@@ -56,20 +61,24 @@ export function Navbar() {
                     : showGlass
                       ? "text-text-secondary hover:text-burgundy"
                       : "text-white/75 hover:text-white",
+                  isAnyHovered && !isThisHovered && "opacity-45 blur-[0.3px]"
                 )}
               >
                 {link.label}
                 {isActive && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gold"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
+                  <div className="absolute -bottom-1.5 left-0 right-0 flex justify-center items-center">
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="h-[1px] w-full bg-gold"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                    <span className="absolute h-1.5 w-1.5 rotate-45 bg-gold" />
+                  </div>
                 )}
               </Link>
             );
           })}
-          <Button variant={ "gold"} size="sm" asChild>
+          <Button variant="gold" size="sm" asChild>
             <Link href="/contact">Inquire</Link>
           </Button>
         </div>

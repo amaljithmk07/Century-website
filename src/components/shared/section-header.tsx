@@ -27,7 +27,10 @@ export function SectionHeader({
       className={cn("mb-16 lg:mb-24", align === "center" && "text-center")}
     >
       {label && (
-        <span className={cn("label-luxury mb-6 block", light ? "text-gold" : "text-gold")}>
+        <span
+          className={cn("label-luxury mb-4 block", light ? "text-gold-300" : "text-gold")}
+          style={{ fontFamily: "var(--font-cormorant)", letterSpacing: "0.28em", fontStyle: "italic" }}
+        >
           {label}
         </span>
       )}
@@ -39,14 +42,28 @@ export function SectionHeader({
       >
         {title}
       </h2>
+      
+      {/* Luxury ornate divider layout */}
       <div
         className={cn(
-          "divider-ornate mt-8 mb-8",
-          align === "center" ? "mx-auto max-w-xs justify-center" : "max-w-[120px]"
+          "flex items-center gap-3 mt-6 mb-6",
+          align === "center" ? "justify-center" : "justify-start"
         )}
       >
-        <span className="divider-ornate-center" />
+        {align === "center" ? (
+          <>
+            <div className="h-[1px] w-14 bg-gradient-to-r from-transparent via-gold-300/30 to-gold" />
+            <div className="h-1.5 w-1.5 rotate-45 border border-gold bg-gold/10" />
+            <div className="h-[1px] w-14 bg-gradient-to-l from-transparent via-gold-300/30 to-gold" />
+          </>
+        ) : (
+          <>
+            <div className="h-1.5 w-1.5 rotate-45 border border-gold bg-gold/10" />
+            <div className="h-[1px] w-20 bg-gradient-to-r from-gold via-gold-300/30 to-transparent" />
+          </>
+        )}
       </div>
+
       {description && (
         <p
           className={cn(

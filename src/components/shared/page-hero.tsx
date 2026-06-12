@@ -25,14 +25,15 @@ export function PageHero({
         sizes="100vw"
       />
       <div className="hero-overlay absolute inset-0" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(27,27,29,0.5)_100%)]" />
-
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-black/50 to-transparent" />
       <div className="relative z-10 container-custom px-5 pt-20 text-center sm:px-8 lg:px-12">
         <motion.span
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="label-luxury mb-6 block text-gold"
+          style={{ color: 'white' }}
+
         >
           Century Convention Center
         </motion.span>
@@ -40,7 +41,7 @@ export function PageHero({
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="heading-display text-white"
+          className="heading-display text-white font-title"
         >
           {title}
         </motion.h1>
@@ -49,7 +50,8 @@ export function PageHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
-            className="body-luxury mx-auto mt-6 max-w-lg text-white/65"
+            className="body-luxury heading-display italic mx-auto mt-6 max-w-lg text-white"
+            style={{ color: 'white' }}
           >
             {subtitle}
           </motion.p>
