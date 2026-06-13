@@ -33,7 +33,7 @@ export default function AboutPage() {
 
       <section className="section-padding surface-ivory">
         <div className="container-custom">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-20">
             <FadeIn direction="left">
               <SectionHeader
                 label="Our Story"
@@ -54,7 +54,7 @@ export default function AboutPage() {
               </p>
             </FadeIn>
             <FadeIn direction="right" delay={0.2}>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+              <div className="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-sm">
                 <Image
                   src="https://images.unsplash.com/photo-1566073771259-6a8506099f26?w=800&q=80"
                   alt="Century Convention Center lobby"
@@ -70,9 +70,9 @@ export default function AboutPage() {
 
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             <FadeIn>
-              <div className="premium-card p-10 lg:p-12">
+              <div className="premium-card p-6 sm:p-10 lg:p-12">
                 <Eye className="mb-5 h-7 w-7 text-gold-500" strokeWidth={1.25} />
                 <h3 className="heading-sub mb-5 text-maroon-950">Our Vision</h3>
                 <p className="body-luxury text-sm">
@@ -83,7 +83,7 @@ export default function AboutPage() {
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <div className="premium-card p-10 lg:p-12">
+              <div className="premium-card p-6 sm:p-10 lg:p-12">
                 <Target className="mb-5 h-7 w-7 text-gold-500" strokeWidth={1.25} />
                 <h3 className="heading-sub mb-5 text-maroon-950">Our Mission</h3>
                 <p className="body-luxury text-sm">
@@ -104,7 +104,7 @@ export default function AboutPage() {
             title="Venue Overview"
             light
           />
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:grid-cols-4">
             {stats.map((stat, index) => (
               <FadeIn key={stat.label} delay={index * 0.1}>
                 <div className="text-center">

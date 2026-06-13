@@ -65,7 +65,7 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="premium-card flex flex-col items-center justify-center p-14 text-center">
+      <div className="premium-card flex flex-col items-center justify-center p-6 sm:p-14 text-center">
         <CheckCircle className="mb-6 h-10 w-10 text-gold-500" strokeWidth={1.25} />
         <h3 className="heading-sub mb-3 text-maroon-950">Thank You</h3>
         <p className="body-luxury max-w-sm">
@@ -83,7 +83,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="premium-card space-y-8 p-10 lg:p-12">
+    <form onSubmit={handleSubmit(onSubmit)} className="premium-card space-y-6 sm:space-y-8 p-6 sm:p-10 lg:p-12">
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="name">Full Name *</Label>

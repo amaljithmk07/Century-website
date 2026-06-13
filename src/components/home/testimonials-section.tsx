@@ -18,10 +18,10 @@ export function TestimonialsSection() {
           description="Hear from those who have celebrated their most cherished moments with us."
         />
 
-        <div className="mb-20 grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="mb-12 sm:mb-20 grid grid-cols-2 gap-4 sm:gap-8 lg:grid-cols-4">
           {stats.map((stat, index) => (
             <FadeIn key={stat.label} delay={index * 0.1}>
-              <div className="text-center p-6 bg-white/40 border border-gold-300/10 rounded-2xl backdrop-blur-sm">
+              <div className="text-center p-4 sm:p-6 bg-white/40 border border-gold-300/10 rounded-2xl backdrop-blur-sm">
                 <p className="text-gradient-gold text-4xl font-light sm:text-5xl" style={{ fontFamily: "var(--font-cormorant)" }}>
                   {stat.value}
                 </p>
@@ -46,12 +46,12 @@ export function TestimonialsSection() {
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.author}>
-                <div className="premium-card bg-white/70 backdrop-blur-sm flex h-full flex-col p-10 border border-gold-300/10 hover:border-gold-300/30">
+                <div className="premium-card bg-white/70 backdrop-blur-sm flex h-full flex-col p-6 sm:p-10 border border-gold-300/10 hover:border-gold-300/30">
                   <div className="mb-4 text-5xl font-light leading-none text-gold/40" style={{ fontFamily: "var(--font-cormorant)" }}>
                     &ldquo;
                   </div>
                   <p
-                    className="mb-8 flex-1 text-[16px] leading-[1.8] text-text-secondary italic font-light"
+                    className="mb-5 sm:mb-8 flex-1 text-[16px] leading-[1.8] text-text-secondary italic font-light"
                     style={{ fontFamily: "var(--font-cormorant)" }}
                   >
                     {testimonial.quote}

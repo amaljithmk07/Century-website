@@ -135,10 +135,10 @@ const buttonVariants = cva(
       },
 
       size: {
-        default: "h-14 px-10 text-[12px]",
-        sm: "h-11 px-7 text-[11px]",
-        lg: "h-16 px-14 text-[13px]",
-        icon: "h-14 w-14 p-0",
+        default: "h-12 sm:h-14 px-7 sm:px-10 text-[11px] sm:text-[12px]",
+        sm: "h-10 sm:h-11 px-5 sm:px-7 text-[10px] sm:text-[11px]",
+        lg: "h-14 sm:h-16 px-8 sm:px-14 text-[12px] sm:text-[13px]",
+        icon: "h-12 w-12 sm:h-14 sm:w-14 p-0",
       },
 
       rounded: {

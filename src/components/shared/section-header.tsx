@@ -24,11 +24,11 @@ export function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-      className={cn("mb-16 lg:mb-24", align === "center" && "text-center")}
+      className={cn("mb-10 sm:mb-16 lg:mb-24", align === "center" && "text-center")}
     >
       {label && (
         <span
-          className={cn("label-luxury mb-4 block", light ? "text-gold-300" : "text-gold")}
+          className={cn("label-luxury mb-2 sm:mb-4 block", light ? "text-gold-300" : "text-gold")}
           style={{ fontFamily: "var(--font-cormorant)", letterSpacing: "0.28em", fontStyle: "italic" }}
         >
           {label}
@@ -46,7 +46,7 @@ export function SectionHeader({
       {/* Luxury ornate divider layout */}
       <div
         className={cn(
-          "flex items-center gap-3 mt-6 mb-6",
+          "flex items-center gap-3 mt-4 mb-4 sm:mt-6 sm:mb-6",
           align === "center" ? "justify-center" : "justify-start"
         )}
       >

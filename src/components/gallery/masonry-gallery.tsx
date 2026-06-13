@@ -40,7 +40,7 @@ export function MasonryGallery() {
 
   return (
     <>
-      <div className="mb-14 flex flex-wrap justify-center gap-3">
+      <div className="mb-8 flex flex-wrap justify-center gap-2 sm:mb-14 sm:gap-3">
         {categories.map((cat) => (
           <button
             key={cat.value}
@@ -57,7 +57,7 @@ export function MasonryGallery() {
         ))}
       </div>
 
-      <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
+      <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
         <AnimatePresence mode="popLayout">
           {filtered.map((image, index) => (
             <motion.button
@@ -68,7 +68,7 @@ export function MasonryGallery() {
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, delay: index * 0.04 }}
               onClick={() => openLightbox(index)}
-              className="group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <Image
                 src={image.src}

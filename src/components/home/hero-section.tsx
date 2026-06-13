@@ -36,7 +36,7 @@ export function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 scale-105">
         <AnimatePresence mode="popLayout">

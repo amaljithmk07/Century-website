@@ -23,18 +23,18 @@ export default function ContactPage() {
 
       <section className="section-padding surface-ivory">
         <div className="container-custom">
-          <div className="grid gap-16 lg:grid-cols-5 lg:gap-20">
+          <div className="grid gap-10 lg:grid-cols-5 lg:gap-20">
             <FadeIn className="lg:col-span-3">
-              <span className="label-luxury mb-4 block">Inquiry</span>
-              <h2 className="heading-sub mb-4 text-maroon-950">Send a Message</h2>
-              <p className="body-luxury mb-10 max-w-md">
+              <span className="label-luxury mb-2 sm:mb-4 block">Inquiry</span>
+              <h2 className="heading-sub mb-3 sm:mb-4 text-maroon-950">Send a Message</h2>
+              <p className="body-luxury mb-6 sm:mb-10 max-w-md">
                 Fill out the form below and our team will respond within 24 hours.
               </p>
               <ContactForm />
             </FadeIn>
 
             <FadeIn delay={0.2} className="lg:col-span-2">
-              <div className="premium-card space-y-10 p-10">
+              <div className="premium-card space-y-6 sm:space-y-10 p-6 sm:p-10">
                 <div>
                   <span className="label-luxury mb-6 block">Reach Us</span>
                   <h2 className="heading-sub mb-8 text-maroon-950">Contact Information</h2>
@@ -107,7 +107,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="h-[420px] w-full border-t border-gold-200/30">
+      <section className="h-[320px] sm:h-[420px] w-full border-t border-gold-200/30">
         <iframe
           src={siteConfig.mapEmbedUrl}
           width="100%"

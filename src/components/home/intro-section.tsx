@@ -10,9 +10,9 @@ export function IntroSection() {
   return (
     <section id="about" className="section-padding surface-ivory">
       <div className="container-custom">
-        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
+        <div className="grid items-center gap-8 sm:gap-16 lg:grid-cols-2 lg:gap-24">
           <FadeIn direction="left">
-            <div className="luxury-card-image relative aspect-[4/5] overflow-hidden rounded-2xl">
+            <div className="luxury-card-image relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden rounded-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80"
                 alt="Elegant event setup at Century Convention Center"

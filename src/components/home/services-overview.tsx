@@ -26,7 +26,7 @@ export function ServicesOverview() {
           {featured.map((service) => (
             <StaggerItem key={service.slug}>
               <div className="group relative overflow-hidden rounded-2xl">
-                <div className="luxury-card-image relative aspect-[3/4]">
+                <div className="luxury-card-image relative aspect-[4/3] sm:aspect-[3/4]">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -35,7 +35,7 @@ export function ServicesOverview() {
                     sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-luxury-dark via-luxury-dark/30 to-transparent transition-opacity duration-700 group-hover:via-luxury-dark/20" />
-                  <div className="absolute inset-x-0 bottom-0 p-7">
+                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
                     <service.icon className="mb-4 h-5 w-5 text-gold" strokeWidth={1.25} />
                     <h3
                       className="text-2xl font-normal text-white"
@@ -51,7 +51,7 @@ export function ServicesOverview() {
           ))}
         </StaggerChildren>
 
-        <div className="mt-16 text-center">
+        <div className="mt-10 sm:mt-16 text-center">
           <Button variant="outlineLight" asChild>
             <Link href="/services">View All Services</Link>
           </Button>

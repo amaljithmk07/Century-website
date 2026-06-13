@@ -43,7 +43,7 @@ export default function ServicesPage() {
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/80 via-maroon-950/20 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
                       <div className="icon-frame mb-4 h-11 w-11">
                         <service.icon className="h-5 w-5 text-gold-600" strokeWidth={1.25} />
                       </div>
@@ -55,7 +55,7 @@ export default function ServicesPage() {
                       </h3>
                     </div>
                   </div>
-                  <div className="p-8">
+                  <div className="p-5 sm:p-8">
                     <p className="body-luxury text-sm">{service.description}</p>
                   </div>
                 </div>
@@ -63,7 +63,7 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          <FadeIn className="mt-20 text-center">
+          <FadeIn className="mt-12 sm:mt-20 text-center">
             <p className="body-luxury mb-8">
               Ready to plan your event? Our team is here to help.
             </p>

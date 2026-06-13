@@ -28,14 +28,14 @@ export function CTASection() {
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="label-luxury mb-8 block text-gold">Begin Your Journey</span>
+            <span className="label-luxury mb-4 sm:mb-8 block text-gold">Begin Your Journey</span>
             <h2 className="heading-section mx-auto max-w-3xl text-white">
               Ready to Create an Unforgettable Celebration
             </h2>
-            <div className="divider-ornate mx-auto mt-10 mb-10 max-w-xs justify-center">
+            <div className="divider-ornate mx-auto mt-6 mb-6 max-w-xs justify-center">
               <span className="divider-ornate-center" />
             </div>
-            <p className="body-luxury mx-auto mb-14 max-w-lg text-white/60">
+            <p className="body-luxury mx-auto mb-8 sm:mb-14 max-w-lg text-white/60">
               Let our experienced team craft a bespoke experience for your special occasion.
               Reach out today for a personalized consultation.
             </p>

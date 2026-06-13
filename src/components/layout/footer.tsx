@@ -17,9 +17,9 @@ export function Footer() {
       <div className="pointer-events-none h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="container-custom section-padding !pb-10">
-        <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:gap-14 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="mb-8">
+            <div className="mb-5 sm:mb-8">
               <Logo variant="light" size="lg" href="/" />
             </div>
             <p className="body-luxury text-sm text-white/50">{siteConfig.description}</p>
@@ -99,7 +99,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-white/8 pt-8 text-center">
+        <div className="mt-10 sm:mt-16 border-t border-white/8 pt-8 text-center">
           <p className="text-[11px] uppercase tracking-[0.2em] text-white/30">
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>

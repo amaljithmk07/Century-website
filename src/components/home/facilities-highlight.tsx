@@ -36,7 +36,7 @@ export function FacilitiesHighlight() {
                     <facility.icon className="h-5 w-5 text-gold" strokeWidth={1.25} />
                   </div>
                 </div>
-                <div className="p-8">
+                <div className="p-5 sm:p-8">
                   <h3 className="heading-sub mb-3 text-text-primary">{facility.title}</h3>
                   <p className="body-luxury text-sm leading-relaxed">
                     {facility.description}
@@ -47,7 +47,7 @@ export function FacilitiesHighlight() {
           ))}
         </StaggerChildren>
 
-        <div className="mt-16 text-center">
+        <div className="mt-10 sm:mt-16 text-center">
           <Button variant="gold" asChild>
             <Link href="/facilities">Explore All Facilities</Link>
           </Button>
