@@ -66,13 +66,13 @@ export function HeroSection() {
 
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="relative z-10 container-custom px-5 pt-28 text-center sm:px-8 lg:px-12"
+        className="relative z-10 container-custom px-5 pt-20 sm:pt-28 text-center sm:px-8 lg:px-12"
       >
         <motion.span
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="label-luxury mb-6 inline-block text-gold-300"
+          className="label-luxury mb-4 sm:mb-6 inline-block text-gold-300"
         >
           Premium Event Destination
         </motion.span>
@@ -81,7 +81,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className=" heading-display mx-auto max-w-5xl text-white font-title"
+          className="heading-display mx-auto max-w-5xl text-white font-title"
         >
           {siteConfig.headline}
         </motion.h1>
@@ -91,7 +91,7 @@ export function HeroSection() {
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-center justify-center gap-4 my-8"
+          className="flex items-center justify-center gap-4 my-5 sm:my-8"
         >
           <div className="h-[1px] w-16 bg-gradient-to-r from-transparent via-gold-300/40 to-gold" />
           <div className="h-1.5 w-1.5 rotate-45 border border-gold-300 bg-gold-300/20" />
@@ -102,7 +102,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.55 }}
-          className="mx-auto max-w-2xl text-lg font-light tracking-wide text-white/90 leading-relaxed"
+          className="mx-auto max-w-2xl text-base sm:text-lg font-light tracking-wide text-white/90 leading-relaxed"
           style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic" }}
         >
           {siteConfig.tagline}
@@ -112,7 +112,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7 }}
-          className="mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5"
+          className="mt-8 sm:mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5"
         >
           <Button variant="gold" size="lg" asChild>
             <Link href="/contact">Plan Your Event</Link>

@@ -187,9 +187,9 @@ body {
 .hero-overlay {
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.8) 40%,
-    rgba(0, 0, 0, 0.9) 100%
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.7) 100%
   );
 }
 
@@ -284,9 +284,9 @@ body {
 }
 
 .glass-luxury {
-  background: rgba(250, 248, 244, 0.78);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(250, 248, 244, 0.9);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(199, 165, 106, 0.15);
   box-shadow: 0 8px 32px 0 rgba(27, 27, 29, 0.05);
 }

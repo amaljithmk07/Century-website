@@ -107,7 +107,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="h-[320px] sm:h-[420px] w-full border-t border-gold-200/30">
+      <section className="h-[320px] sm:h-[420px] w-[95%] mx-auto rounded-3xl overflow-hidden mb-10 border-t border-gold-200/30">
         <iframe
           src={siteConfig.mapEmbedUrl}
           width="100%"
