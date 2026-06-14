@@ -120,208 +120,200 @@ export function AdminSettingsContainer({ settings }: AdminSettingsContainerProps
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
 
           {/* TAB 1: GENERAL CONTENT */}
-          {activeTab === "general" && (
-            <div className="space-y-5">
-              <div className="border-b border-gold/10 pb-3.5 mb-6">
-                <h4 className="text-base font-light text-neutral-800 font-display uppercase tracking-wider" style={{ fontFamily: "var(--font-cormorant)" }}>General Copywriting</h4>
-                <p className="text-[10px] text-neutral-500 mt-1 leading-relaxed">Configure homepage titles, taglines, and SEO definitions</p>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="headline" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Hero Headline</Label>
-                <Input
-                  id="headline"
-                  name="headline"
-                  defaultValue={settings.headline}
-                  required
-                  className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="tagline" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Hero Tagline / Subtitle</Label>
-                <Textarea
-                  id="tagline"
-                  name="tagline"
-                  defaultValue={settings.tagline}
-                  required
-                  rows={3}
-                  className="px-4 py-3 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs leading-relaxed transition-all"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="description" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Meta Description (SEO)</Label>
-                <Textarea
-                  id="description"
-                  name="description"
-                  defaultValue={settings.description}
-                  required
-                  rows={4}
-                  className="px-4 py-3 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs leading-relaxed transition-all"
-                />
-              </div>
+          <div className={cn("space-y-5", activeTab !== "general" && "hidden")}>
+            <div className="border-b border-gold/10 pb-3.5 mb-6">
+              <h4 className="text-base font-light text-neutral-800 font-display uppercase tracking-wider" style={{ fontFamily: "var(--font-cormorant)" }}>General Copywriting</h4>
+              <p className="text-[10px] text-neutral-500 mt-1 leading-relaxed">Configure homepage titles, taglines, and SEO definitions</p>
             </div>
-          )}
+
+            <div className="space-y-2">
+              <Label htmlFor="headline" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Hero Headline</Label>
+              <Input
+                id="headline"
+                name="headline"
+                defaultValue={settings.headline}
+                required={activeTab === "general"}
+                className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="tagline" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Hero Tagline / Subtitle</Label>
+              <Textarea
+                id="tagline"
+                name="tagline"
+                defaultValue={settings.tagline}
+                required={activeTab === "general"}
+                rows={3}
+                className="px-4 py-3 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs leading-relaxed transition-all"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="description" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Meta Description (SEO)</Label>
+              <Textarea
+                id="description"
+                name="description"
+                defaultValue={settings.description}
+                required={activeTab === "general"}
+                rows={4}
+                className="px-4 py-3 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs leading-relaxed transition-all"
+              />
+            </div>
+          </div>
 
           {/* TAB 2: CONTACT DETAILS */}
-          {activeTab === "contact" && (
-            <div className="space-y-5">
-              <div className="border-b border-gold/10 pb-3.5 mb-6">
-                <h4 className="text-base font-light text-neutral-800 font-display uppercase tracking-wider" style={{ fontFamily: "var(--font-cormorant)" }}>Contact Information</h4>
-                <p className="text-[10px] text-neutral-500 mt-1 leading-relaxed">Configure email addresses, telephone credentials, and WhatsApp lines</p>
+          <div className={cn("space-y-5", activeTab !== "contact" && "hidden")}>
+            <div className="border-b border-gold/10 pb-3.5 mb-6">
+              <h4 className="text-base font-light text-neutral-800 font-display uppercase tracking-wider" style={{ fontFamily: "var(--font-cormorant)" }}>Contact Information</h4>
+              <p className="text-[10px] text-neutral-500 mt-1 leading-relaxed">Configure email addresses, telephone credentials, and WhatsApp lines</p>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="phone" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Phone (Display)</Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  defaultValue={settings.phone}
+                  required={activeTab === "contact"}
+                  className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+                />
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Phone (Display)</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    defaultValue={settings.phone}
-                    required
-                    className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phoneRaw" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Phone (Raw Link Format)</Label>
-                  <Input
-                    id="phoneRaw"
-                    name="phoneRaw"
-                    defaultValue={settings.phoneRaw}
-                    required
-                    className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                  />
-                </div>
-              </div>
-
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Email Address</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    defaultValue={settings.email}
-                    required
-                    className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="whatsapp" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">WhatsApp Link Target (digits only)</Label>
-                  <Input
-                    id="whatsapp"
-                    name="whatsapp"
-                    defaultValue={settings.whatsapp}
-                    placeholder="e.g. 919876543210"
-                    required
-                    className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                  />
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="phoneRaw" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Phone (Raw Link Format)</Label>
+                <Input
+                  id="phoneRaw"
+                  name="phoneRaw"
+                  defaultValue={settings.phoneRaw}
+                  required={activeTab === "contact"}
+                  className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+                />
               </div>
             </div>
-          )}
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Email Address</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  defaultValue={settings.email}
+                  required={activeTab === "contact"}
+                  className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="whatsapp" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">WhatsApp Link Target (digits only)</Label>
+                <Input
+                  id="whatsapp"
+                  name="whatsapp"
+                  defaultValue={settings.whatsapp}
+                  placeholder="e.g. 919876543210"
+                  required={activeTab === "contact"}
+                  className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+                />
+              </div>
+            </div>
+          </div>
 
           {/* TAB 3: LOCATION MAP */}
-          {activeTab === "location" && (
-            <div className="space-y-5">
-              <div className="border-b border-gold/10 pb-3.5 mb-6">
-                <h4 className="text-base font-light text-neutral-800 font-display uppercase tracking-wider" style={{ fontFamily: "var(--font-cormorant)" }}>Location Parameters</h4>
-                <p className="text-[10px] text-neutral-500 mt-1 leading-relaxed">Configure physical addresses printed on public footer sections</p>
-              </div>
+          <div className={cn("space-y-5", activeTab !== "location" && "hidden")}>
+            <div className="border-b border-gold/10 pb-3.5 mb-6">
+              <h4 className="text-base font-light text-neutral-800 font-display uppercase tracking-wider" style={{ fontFamily: "var(--font-cormorant)" }}>Location Parameters</h4>
+              <p className="text-[10px] text-neutral-500 mt-1 leading-relaxed">Configure physical addresses printed on public footer sections</p>
+            </div>
 
+            <div className="space-y-2">
+              <Label htmlFor="addressStreet" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Street Address</Label>
+              <Input
+                id="addressStreet"
+                name="addressStreet"
+                defaultValue={settings.addressStreet}
+                required={activeTab === "location"}
+                className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+              />
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-3">
               <div className="space-y-2">
-                <Label htmlFor="addressStreet" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Street Address</Label>
+                <Label htmlFor="addressCity" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">City</Label>
                 <Input
-                  id="addressStreet"
-                  name="addressStreet"
-                  defaultValue={settings.addressStreet}
-                  required
+                  id="addressCity"
+                  name="addressCity"
+                  defaultValue={settings.addressCity}
+                  required={activeTab === "location"}
                   className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
                 />
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-3">
-                <div className="space-y-2">
-                  <Label htmlFor="addressCity" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">City</Label>
-                  <Input
-                    id="addressCity"
-                    name="addressCity"
-                    defaultValue={settings.addressCity}
-                    required
-                    className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="addressState" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">State / Region</Label>
-                  <Input
-                    id="addressState"
-                    name="addressState"
-                    defaultValue={settings.addressState}
-                    required
-                    className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="addressZip" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">ZIP Code</Label>
-                  <Input
-                    id="addressZip"
-                    name="addressZip"
-                    defaultValue={settings.addressZip}
-                    required
-                    className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                  />
-                </div>
+              <div className="space-y-2">
+                <Label htmlFor="addressState" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">State / Region</Label>
+                <Input
+                  id="addressState"
+                  name="addressState"
+                  defaultValue={settings.addressState}
+                  required={activeTab === "location"}
+                  className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+                />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="addressCountry" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Country</Label>
+                <Label htmlFor="addressZip" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">ZIP Code</Label>
                 <Input
-                  id="addressCountry"
-                  name="addressCountry"
-                  defaultValue={settings.addressCountry}
-                  required
+                  id="addressZip"
+                  name="addressZip"
+                  defaultValue={settings.addressZip}
+                  required={activeTab === "location"}
                   className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
                 />
               </div>
             </div>
-          )}
+
+            <div className="space-y-2">
+              <Label htmlFor="addressCountry" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Country</Label>
+              <Input
+                id="addressCountry"
+                name="addressCountry"
+                defaultValue={settings.addressCountry}
+                required={activeTab === "location"}
+                className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+              />
+            </div>
+          </div>
 
           {/* TAB 4: BUSINESS HOURS */}
-          {activeTab === "hours" && (
-            <div className="space-y-5">
-              <div className="border-b border-gold/10 pb-3.5 mb-6">
-                <h4 className="text-base font-light text-neutral-800 font-display uppercase tracking-wider" style={{ fontFamily: "var(--font-cormorant)" }}>Business Hours</h4>
-                <p className="text-[10px] text-neutral-500 mt-1 leading-relaxed">Configure operational timings printed on page footers</p>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="hoursMonSat" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Monday – Saturday Hours</Label>
-                <Input
-                  id="hoursMonSat"
-                  name="hoursMonSat"
-                  defaultValue={monSatHours}
-                  required
-                  className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="hoursSun" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Sunday Hours</Label>
-                <Input
-                  id="hoursSun"
-                  name="hoursSun"
-                  defaultValue={sunHours}
-                  required
-                  className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
-                />
-              </div>
+          <div className={cn("space-y-5", activeTab !== "hours" && "hidden")}>
+            <div className="border-b border-gold/10 pb-3.5 mb-6">
+              <h4 className="text-base font-light text-neutral-800 font-display uppercase tracking-wider" style={{ fontFamily: "var(--font-cormorant)" }}>Business Hours</h4>
+              <p className="text-[10px] text-neutral-500 mt-1 leading-relaxed">Configure operational timings printed on page footers</p>
             </div>
-          )}
+
+            <div className="space-y-2">
+              <Label htmlFor="hoursMonSat" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Monday – Saturday Hours</Label>
+              <Input
+                id="hoursMonSat"
+                name="hoursMonSat"
+                defaultValue={monSatHours}
+                required={activeTab === "hours"}
+                className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="hoursSun" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Sunday Hours</Label>
+              <Input
+                id="hoursSun"
+                name="hoursSun"
+                defaultValue={sunHours}
+                required={activeTab === "hours"}
+                className="h-11 px-4 border border-gold/15 bg-white text-neutral-800 focus-visible:border-gold-500 rounded-xl text-xs transition-all"
+              />
+            </div>
+          </div>
 
           {/* Global Save Button - Mobile only */}
           <div className="pt-4 lg:hidden border-t border-gold/10 space-y-4">
