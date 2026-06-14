@@ -4,11 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { galleryImages, type GalleryImage } from "@/lib/data";
+import { type DBGalleryImage } from "@/lib/db";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
-type Category = "all" | GalleryImage["category"];
+type Category = "all" | DBGalleryImage["category"];
 
 const categories: { value: Category; label: string }[] = [
   { value: "all", label: "All" },
@@ -17,14 +17,18 @@ const categories: { value: Category; label: string }[] = [
   { value: "facilities", label: "Facilities" },
 ];
 
-export function MasonryGallery() {
+interface MasonryGalleryProps {
+  images: DBGalleryImage[];
+}
+
+export function MasonryGallery({ images }: MasonryGalleryProps) {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const filtered =
     activeCategory === "all"
-      ? galleryImages
-      : galleryImages.filter((img) => img.category === activeCategory);
+      ? images
+      : images.filter((img) => img.category === activeCategory);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
@@ -58,11 +62,10 @@ export function MasonryGallery() {
       </div>
 
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-        <AnimatePresence mode="popLayout">
+        <AnimatePresence>
           {filtered.map((image, index) => (
             <motion.button
               key={`${image.src}-${activeCategory}`}
-              layout
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}

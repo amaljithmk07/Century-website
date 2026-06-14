@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { siteConfig, getWhatsAppUrl } from "@/lib/site-config";
+import { type DBSettings } from "@/lib/db";
 
 const heroImages = [
   "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80", // Existing grand hall
@@ -13,7 +13,11 @@ const heroImages = [
   "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80", // Reception hall
 ];
 
-export function HeroSection() {
+interface HeroSectionProps {
+  settings: DBSettings;
+}
+
+export function HeroSection({ settings }: HeroSectionProps) {
   const ref = useRef<HTMLElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -83,7 +87,7 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="heading-display mx-auto max-w-5xl text-white font-title"
         >
-          {siteConfig.headline}
+          {settings.headline}
         </motion.h1>
 
         {/* Premium luxury divider ornament */}
@@ -105,7 +109,7 @@ export function HeroSection() {
           className="mx-auto max-w-2xl text-base sm:text-lg font-light tracking-wide text-white/90 leading-relaxed"
           style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic" }}
         >
-          {siteConfig.tagline}
+          {settings.tagline}
         </motion.p>
 
         <motion.div
@@ -119,7 +123,7 @@ export function HeroSection() {
           </Button>
           <Button variant="outline" size="lg" asChild>
             <a
-              href={getWhatsAppUrl()}
+              href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent("Hello! I would like to inquire about Century Convention Center.")}`}
               target="_blank"
               rel="noopener noreferrer"
             >

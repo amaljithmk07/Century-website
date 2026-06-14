@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { WhatsAppButton } from "@/components/layout/whatsapp-button";
-import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import { StructuredData } from "@/components/seo/structured-data";
 import { GoogleAnalytics } from "@/components/seo/google-analytics";
 import { siteConfig } from "@/lib/site-config";
+import { getSettings } from "@/lib/db";
+import { ClientLayoutWrapper } from "@/components/layout/client-layout-wrapper";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -94,19 +92,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = getSettings();
+
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>
       <head>
         <StructuredData />
       </head>
       <body className="antialiased">
-        <SmoothScroll>
-          <GoogleAnalytics />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <WhatsAppButton />
-        </SmoothScroll>
+        <GoogleAnalytics />
+        <ClientLayoutWrapper settings={settings}>
+          {children}
+        </ClientLayoutWrapper>
       </body>
     </html>
   );

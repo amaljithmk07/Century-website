@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { FadeIn } from "@/components/shared/fade-in";
 import { ContactForm } from "@/components/contact/contact-form";
-import { siteConfig, getWhatsAppUrl } from "@/lib/site-config";
-import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/site-config";
+import { WhatsAppInquiryButton } from "@/components/contact/whatsapp-inquiry-button";
+import { getSettings } from "@/lib/db";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -13,6 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const settings = getSettings();
+  const addressFull = `${settings.addressStreet}, ${settings.addressCity}, ${settings.addressState} ${settings.addressZip}, ${settings.addressCountry}`;
+
   return (
     <>
       <PageHero
@@ -45,7 +49,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="label-luxury mb-1 text-charcoal">Address</p>
-                        <p className="text-sm leading-relaxed text-charcoal-light">{siteConfig.address.full}</p>
+                        <p className="text-sm leading-relaxed text-charcoal-light">{addressFull}</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-4">
@@ -55,10 +59,10 @@ export default function ContactPage() {
                       <div>
                         <p className="label-luxury mb-1 text-charcoal">Phone</p>
                         <a
-                          href={`tel:${siteConfig.phoneRaw}`}
+                          href={`tel:${settings.phoneRaw}`}
                           className="text-sm text-charcoal-light transition-colors hover:text-gold-600"
                         >
-                          {siteConfig.phone}
+                          {settings.phone}
                         </a>
                       </div>
                     </li>
@@ -69,10 +73,10 @@ export default function ContactPage() {
                       <div>
                         <p className="label-luxury mb-1 text-charcoal">Email</p>
                         <a
-                          href={`mailto:${siteConfig.email}`}
+                          href={`mailto:${settings.email}`}
                           className="text-sm text-charcoal-light transition-colors hover:text-gold-600"
                         >
-                          {siteConfig.email}
+                          {settings.email}
                         </a>
                       </div>
                     </li>
@@ -82,7 +86,7 @@ export default function ContactPage() {
                 <div className="border-t border-gold-200/50 pt-8">
                   <span className="label-luxury mb-5 block">Hours</span>
                   <ul className="space-y-4">
-                    {siteConfig.businessHours.map((item) => (
+                    {settings.businessHours.map((item) => (
                       <li key={item.day} className="flex items-center gap-4">
                         <Clock className="h-4 w-4 text-gold-500/70" strokeWidth={1.25} />
                         <div>
@@ -95,12 +99,7 @@ export default function ContactPage() {
                   </ul>
                 </div>
 
-                <Button variant="gold" className="w-full" asChild>
-                  <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4" />
-                    Chat on WhatsApp
-                  </a>
-                </Button>
+                <WhatsAppInquiryButton />
               </div>
             </FadeIn>
           </div>

@@ -2,13 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { galleryImages } from "@/lib/data";
+import { type DBGalleryImage } from "@/lib/db";
 import { SectionHeader } from "@/components/shared/section-header";
 import { StaggerChildren, StaggerItem } from "@/components/shared/fade-in";
 import { Button } from "@/components/ui/button";
 
-export function GalleryPreview() {
-  const preview = galleryImages.slice(0, 6);
+interface GalleryPreviewProps {
+  images: DBGalleryImage[];
+}
+
+export function GalleryPreview({ images }: GalleryPreviewProps) {
+  const preview = images.slice(0, 6);
 
   return (
     <section className="section-padding surface-ivory">

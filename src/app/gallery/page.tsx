@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/shared/page-hero";
 import { SectionHeader } from "@/components/shared/section-header";
 import { MasonryGallery } from "@/components/gallery/masonry-gallery";
+import { getGalleryImages } from "@/lib/db";
+
+export const revalidate = 0; // Ensure live database images are fetched on request
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -10,6 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function GalleryPage() {
+  const images = getGalleryImages();
+
   return (
     <>
       <PageHero
@@ -25,7 +30,7 @@ export default function GalleryPage() {
             title="Moments Captured"
             description="Explore our collection of stunning events and beautifully appointed spaces."
           />
-          <MasonryGallery />
+          <MasonryGallery images={images} />
         </div>
       </section>
     </>

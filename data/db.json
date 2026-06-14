@@ -1,0 +1,152 @@
+{
+  "gallery": [
+    {
+      "src": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80",
+      "alt": "Grand convention hall interior",
+      "category": "venue",
+      "width": 800,
+      "height": 600,
+      "id": "img-1781448518880-0",
+      "createdAt": "2026-06-14T14:48:38.880Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
+      "alt": "Elegant wedding ceremony setup",
+      "category": "events",
+      "width": 600,
+      "height": 900,
+      "id": "img-1781448518881-1",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80",
+      "alt": "Wedding reception dining hall",
+      "category": "events",
+      "width": 800,
+      "height": 500,
+      "id": "img-1781448518881-2",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80",
+      "alt": "Corporate conference event",
+      "category": "events",
+      "width": 600,
+      "height": 700,
+      "id": "img-1781448518881-3",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80",
+      "alt": "Conference auditorium seating",
+      "category": "facilities",
+      "width": 800,
+      "height": 550,
+      "id": "img-1781448518881-4",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+      "alt": "Premium dining setup",
+      "category": "facilities",
+      "width": 600,
+      "height": 800,
+      "id": "img-1781448518881-5",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
+      "alt": "Stage with lighting and AV",
+      "category": "facilities",
+      "width": 800,
+      "height": 600,
+      "id": "img-1781448518881-6",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1505236858219-8359eb2e4c0b?w=800&q=80",
+      "alt": "Banquet seating arrangement",
+      "category": "venue",
+      "width": 800,
+      "height": 500,
+      "id": "img-1781448518881-7",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80",
+      "alt": "Social gathering celebration",
+      "category": "events",
+      "width": 600,
+      "height": 750,
+      "id": "img-1781448518881-8",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1566073771259-6a8506099f26?w=800&q=80",
+      "alt": "Luxury venue lobby",
+      "category": "venue",
+      "width": 800,
+      "height": 600,
+      "id": "img-1781448518881-9",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80",
+      "alt": "Concert stage setup",
+      "category": "facilities",
+      "width": 600,
+      "height": 700,
+      "id": "img-1781448518881-10",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1523580495183-7a0f5a4c1acf?w=800&q=80",
+      "alt": "Community event gathering",
+      "category": "events",
+      "width": 800,
+      "height": 550,
+      "id": "img-1781448518881-11",
+      "createdAt": "2026-06-14T14:48:38.881Z"
+    }
+  ],
+  "inquiries": [
+    {
+      "name": "Amaljith",
+      "email": "amaljithmk44@gmail.com",
+      "phone": "+918086171296",
+      "eventType": "Reception",
+      "eventDate": "2026-06-09",
+      "guestCount": "500",
+      "message": "dsfsdfdsfsd",
+      "type": "contact",
+      "id": "inq-1781450034062-196",
+      "status": "archived",
+      "createdAt": "2026-06-14T15:13:54.062Z"
+    }
+  ],
+  "settings": {
+    "name": "Century Convention Center",
+    "headline": "Where Grand Celebrations Become Timeless Memories",
+    "tagline": "Century Convention Center offers a premium destination for weddings, corporate events, conferences, exhibitions, and unforgettable celebrations.",
+    "description": "Century Convention Center is a premium event venue for weddings, corporate events, conferences, exhibitions, and social gatherings. Experience luxury, elegance, and world-class hospitality.",
+    "phone": "+91 98765 43210",
+    "phoneRaw": "+919876543210",
+    "email": "info@centuryconvention.com",
+    "whatsapp": "919876543210",
+    "addressStreet": "Century Convention Center, Main Road",
+    "addressCity": "City Name",
+    "addressState": "State",
+    "addressZip": "000000",
+    "addressCountry": "India",
+    "businessHours": [
+      {
+        "day": "Monday – Saturday",
+        "hours": "9:00 AM – 8:00 PM"
+      },
+      {
+        "day": "Sunday",
+        "hours": "10:00 AM – 6:00 PM"
+      }
+    ]
+  }
+}

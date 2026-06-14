@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
+import { type DBSettings } from "@/lib/db";
 
 const socialIcons = [
   { href: siteConfig.social.facebook, icon: Facebook, label: "Facebook" },
@@ -11,7 +12,13 @@ const socialIcons = [
   { href: siteConfig.social.linkedin, icon: Linkedin, label: "LinkedIn" },
 ];
 
-export function Footer() {
+interface FooterProps {
+  settings: DBSettings;
+}
+
+export function Footer({ settings }: FooterProps) {
+  const addressFull = `${settings.addressStreet}, ${settings.addressCity}, ${settings.addressState} ${settings.addressZip}, ${settings.addressCountry}`;
+
   return (
     <footer className="bg-luxury-dark text-white">
       <div className="pointer-events-none h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
@@ -22,7 +29,7 @@ export function Footer() {
             <div className="mb-5 sm:mb-8">
               <Logo variant="light" size="lg" href="/" />
             </div>
-            <p className="body-luxury text-sm text-white/50">{siteConfig.description}</p>
+            <p className="body-luxury text-sm text-white/50">{settings.description}</p>
             <div className="mt-8 flex gap-3">
               {socialIcons.map(({ href, icon: Icon, label }) => (
                 <a
@@ -60,24 +67,24 @@ export function Footer() {
             <ul className="space-y-5">
               <li className="flex items-start gap-4">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.25} />
-                <span className="text-sm leading-relaxed text-white/50">{siteConfig.address.full}</span>
+                <span className="text-sm leading-relaxed text-white/50">{addressFull}</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone className="h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.25} />
                 <a
-                  href={`tel:${siteConfig.phoneRaw}`}
+                  href={`tel:${settings.phoneRaw}`}
                   className="text-sm text-white/50 transition-colors hover:text-gold"
                 >
-                  {siteConfig.phone}
+                  {settings.phone}
                 </a>
               </li>
               <li className="flex items-center gap-4">
                 <Mail className="h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.25} />
                 <a
-                  href={`mailto:${siteConfig.email}`}
+                  href={`mailto:${settings.email}`}
                   className="text-sm text-white/50 transition-colors hover:text-gold"
                 >
-                  {siteConfig.email}
+                  {settings.email}
                 </a>
               </li>
             </ul>
@@ -86,7 +93,7 @@ export function Footer() {
           <div>
             <h3 className="label-luxury mb-8 text-gold/80">Hours</h3>
             <ul className="space-y-4">
-              {siteConfig.businessHours.map((item) => (
+              {settings.businessHours.map((item) => (
                 <li key={item.day} className="flex items-start gap-4">
                   <Clock className="mt-0.5 h-4 w-4 shrink-0 text-gold/70" strokeWidth={1.25} />
                   <div>
@@ -100,9 +107,11 @@ export function Footer() {
         </div>
 
         <div className="mt-10 sm:mt-16 border-t border-white/8 pt-8 text-center">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-white/30">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-          </p>
+          <div className="text-[11px] uppercase tracking-[0.2em] text-white/30 flex flex-col sm:flex-row items-center justify-center gap-2">
+            <span>&copy; {new Date().getFullYear()} {settings.name}. All rights reserved.</span>
+            <span className="text-white/10 hidden sm:inline">|</span>
+            <Link href="/admin" className="hover:text-gold transition-colors lowercase sm:uppercase text-[10px] tracking-widest font-semibold mt-1 sm:mt-0">Admin Portal</Link>
+          </div>
         </div>
       </div>
     </footer>
