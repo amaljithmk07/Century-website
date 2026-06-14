@@ -134,7 +134,7 @@ export function AdminInquiriesContainer({ initialInquiries }: AdminInquiriesCont
   };
 
   return (
-    <div className="h-full flex flex-col space-y-6 overflow-hidden">
+    <div className="lg:h-full flex flex-col space-y-6 lg:overflow-hidden">
       {/* Search and Filters Bar */}
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 rounded-2xl border border-gold/15 bg-white p-4 shrink-0 shadow-sm relative">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
@@ -185,9 +185,9 @@ export function AdminInquiriesContainer({ initialInquiries }: AdminInquiriesCont
       </div>
 
       {/* Split Pane Layout */}
-      <div className="grid gap-6 lg:grid-cols-12 flex-1 overflow-hidden min-h-0">
+      <div className="grid gap-6 lg:grid-cols-12 lg:flex-1 lg:overflow-hidden min-h-0">
         {/* Left Panel: Inquiry Cards List (40% width on desktop) */}
-        <div className="col-span-12 lg:col-span-5 flex flex-col space-y-3 h-full overflow-y-auto pr-2 custom-scrollbar">
+        <div className="col-span-12 lg:col-span-5 flex flex-col space-y-3 lg:h-full lg:overflow-y-auto pr-2 custom-scrollbar">
           {filteredInquiries.length === 0 ? (
             <div className="flex h-64 flex-col items-center justify-center rounded-2xl border border-dashed border-gold/15 p-6 text-center bg-white shadow-sm">
               <Inbox className="h-7 w-7 text-neutral-300 mb-2.5" strokeWidth={1} />

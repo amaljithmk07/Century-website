@@ -13,7 +13,7 @@ export default async function AdminInquiriesPage() {
   const inquiries = getInquiries();
 
   return (
-    <div className="h-full flex flex-col space-y-6">
+    <div className="lg:h-full flex flex-col space-y-6">
       {/* Header section */}
       <div className="shrink-0">
         <span className="text-[10px] uppercase tracking-[0.3em] text-gold-600 font-semibold block mb-1">CRM Database</span>
@@ -29,7 +29,7 @@ export default async function AdminInquiriesPage() {
       </div>
 
       {/* Main client component containing the interactive interface */}
-      <div className="flex-1 min-h-0">
+      <div className="lg:flex-1 min-h-0">
         <AdminInquiriesContainer initialInquiries={inquiries} />
       </div>
     </div>

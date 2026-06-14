@@ -39,10 +39,13 @@
   --color-charcoal-light: #666666;
   --color-charcoal-muted: #999999;
 }
-body{
-    overflow-x: hidden;
+body,
+section {
+  overflow-x: hidden !important;
 }
-
+button:focus-visible{
+  outline: none !important;
+}
 @font-face {
   font-family: "Variane Craina";
   src:
@@ -66,7 +69,9 @@ body{
 .premium-card:hover,
 .premium-card-hover:hover {
   border-color: rgba(199, 165, 106, 0.3);
-  box-shadow: 0 20px 60px rgba(27, 27, 29, 0.06), 0 0 25px rgba(199, 165, 106, 0.08);
+  box-shadow:
+    0 20px 60px rgba(27, 27, 29, 0.06),
+    0 0 25px rgba(199, 165, 106, 0.08);
   transform: translateY(-6px);
 }
 
@@ -139,7 +144,7 @@ body {
   font-family: var(--font-cormorant), var(--font-display), Georgia, serif;
   @apply text-lg font-light leading-snug sm:text-xl lg:text-2xl;
 }
-.font-display{
+.font-display {
   font-family: var(--font-cormorant), var(--font-display), Georgia, serif;
 }
 
@@ -225,7 +230,9 @@ body {
 
 .luxury-card:hover {
   border-color: rgba(199, 165, 106, 0.3);
-  box-shadow: 0 20px 60px rgba(27, 27, 29, 0.06), 0 0 25px rgba(199, 165, 106, 0.08);
+  box-shadow:
+    0 20px 60px rgba(27, 27, 29, 0.06),
+    0 0 25px rgba(199, 165, 106, 0.08);
   transform: translateY(-6px);
 }
 

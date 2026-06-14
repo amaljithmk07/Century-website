@@ -13,14 +13,14 @@ export default async function AdminLayout({ children }: AdminLayoutProps) {
   await checkAuth();
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#faf8f4] text-neutral-800">
+    <div className="flex min-h-screen lg:h-screen lg:overflow-hidden bg-[#faf8f4] text-neutral-800">
       {/* Sidebar - Desktop */}
       <AdminSidebar logoutAction={logoutAdmin} />
 
       {/* Main Content Area */}
-      <div className="flex flex-1 flex-col h-full overflow-hidden">
+      <div className="flex flex-1 flex-col lg:h-full lg:overflow-hidden">
         {/* Top Header - Mobile & Desktop */}
-        <header className="flex h-20 shrink-0 items-center justify-between border-b border-gold/15 bg-white px-6 lg:px-10">
+        <header className="flex h-20 shrink-0 items-center justify-between border-b border-gold/15 bg-white px-4 sm:px-6 lg:px-10">
           <div className="flex items-center gap-4">
             {/* Mobile Nav Toggle */}
             <AdminMobileNav logoutAction={logoutAdmin} />
@@ -33,12 +33,13 @@ export default async function AdminLayout({ children }: AdminLayoutProps) {
             </h1>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2.5 rounded-full border border-gold/20 bg-gold/5 px-4 py-1.5 text-xs text-gold-600 font-medium">
-              <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Live Database Connected</span>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-2.5 py-1 sm:px-4 sm:py-1.5 text-[10px] sm:text-xs text-gold-600 font-medium">
+              <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="hidden md:inline">Live Database Connected</span>
+              <span className="md:hidden">Live</span>
             </div>
-            <Button variant="outline" size="sm" asChild className="border-gold/30 text-gold-600 hover:bg-gold/5 hover:text-gold-500 rounded-xl">
+            <Button variant="outline" size="sm" asChild className="border-gold/30 text-gold-600 hover:bg-gold/5 hover:text-gold-500 rounded-xl text-[10px] sm:text-xs px-2.5 py-1 sm:px-3 sm:py-1.5 h-auto">
               <Link href="/" target="_blank">
                 Visit Site
               </Link>
@@ -47,7 +48,7 @@ export default async function AdminLayout({ children }: AdminLayoutProps) {
         </header>
 
         {/* Dynamic Subpage Content */}
-        <main className="flex-1 overflow-y-auto p-6 lg:p-10 bg-[#faf8f4] custom-scrollbar">
+        <main className="flex-1 lg:overflow-y-auto p-4 sm:p-6 lg:p-10 bg-[#faf8f4] custom-scrollbar">
           {children}
         </main>
       </div>
