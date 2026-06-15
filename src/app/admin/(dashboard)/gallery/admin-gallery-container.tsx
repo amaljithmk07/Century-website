@@ -2,34 +2,37 @@
 
 import { useState, useTransition, useRef } from "react";
 import Image from "next/image";
-import { uploadGalleryImageAction, deleteGalleryImageAction } from "@/app/actions/gallery-actions";
+import {
+  uploadGalleryImageAction,
+  deleteGalleryImageAction,
+} from "@/app/actions/gallery-actions";
 import { DBGalleryImage } from "@/lib/db";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { 
-  Upload, 
-  Trash2, 
+import {
+  Upload,
+  Trash2,
   Image as ImageIcon,
-  Loader2, 
+  Loader2,
   AlertCircle,
-  CheckCircle
+  CheckCircle,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-function GalleryCard({ 
-  img, 
-  isConfirmingDelete, 
-  isDeleting, 
-  handleDelete, 
-  confirmDelete, 
-  setDeletingId 
-}: { 
-  img: DBGalleryImage; 
-  isConfirmingDelete: boolean; 
-  isDeleting: boolean; 
-  handleDelete: (id: string) => void; 
-  confirmDelete: (id: string) => void; 
+function GalleryCard({
+  img,
+  isConfirmingDelete,
+  isDeleting,
+  handleDelete,
+  confirmDelete,
+  setDeletingId,
+}: {
+  img: DBGalleryImage;
+  isConfirmingDelete: boolean;
+  isDeleting: boolean;
+  handleDelete: (id: string) => void;
+  confirmDelete: (id: string) => void;
   setDeletingId: (id: string | null) => void;
 }) {
   const [hasError, setHasError] = useState(false);
@@ -46,7 +49,9 @@ function GalleryCard({
         {hasError ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-neutral-100 text-neutral-400 gap-2 border-b border-gold/5">
             <ImageIcon className="h-8 w-8 text-neutral-300" strokeWidth={1} />
-            <span className="text-[9px] uppercase tracking-widest font-semibold text-neutral-400">Photo Unavailable</span>
+            <span className="text-[9px] uppercase tracking-widest font-semibold text-neutral-400">
+              Photo Unavailable
+            </span>
           </div>
         ) : (
           <Image
@@ -66,7 +71,7 @@ function GalleryCard({
           <span className="inline-block rounded-full bg-gold/10 px-2.5 py-0.5 text-[8px] font-semibold text-gold-600 uppercase tracking-widest border border-gold/15">
             {img.category}
           </span>
-          
+
           <button
             onClick={() => handleDelete(img.id)}
             className="rounded-lg bg-red-50 hover:bg-red-100 p-2 text-red-600 transition-colors cursor-pointer shrink-0"
@@ -75,14 +80,19 @@ function GalleryCard({
             <Trash2 className="h-4 w-4" strokeWidth={1.5} />
           </button>
         </div>
-        
+
         <p className="text-[11px] text-neutral-500 line-clamp-3 leading-relaxed font-sans mt-2">
           {img.alt}
         </p>
 
         <div className="text-[8px] text-neutral-400 uppercase tracking-wider font-mono mt-auto pt-2 border-t border-neutral-100 flex justify-between">
           <span>ID: {img.id.slice(-8)}</span>
-          <span>{new Date(img.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}</span>
+          <span>
+            {new Date(img.createdAt).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+            })}
+          </span>
         </div>
       </div>
 
@@ -95,9 +105,16 @@ function GalleryCard({
             exit={{ opacity: 0 }}
             className="absolute inset-0 bg-white/98 flex flex-col items-center justify-center p-6 text-center z-20"
           >
-            <AlertCircle className="h-6 w-6 text-red-500 mb-2.5" strokeWidth={1.5} />
-            <p className="text-xs font-semibold text-neutral-800 uppercase tracking-wider mb-1.5">Delete Photo?</p>
-            <p className="text-[10px] text-neutral-500 mb-4 max-w-[200px] leading-relaxed">This visual will be permanently removed from the website catalog.</p>
+            <AlertCircle
+              className="h-6 w-6 text-red-500 mb-2.5"
+              strokeWidth={1.5}
+            />
+            <p className="text-xs font-semibold text-neutral-800 uppercase tracking-wider mb-1.5">
+              Delete Photo?
+            </p>
+            <p className="text-[10px] text-neutral-500 mb-4 max-w-[200px] leading-relaxed">
+              This visual will be permanently removed from the website catalog.
+            </p>
             <div className="flex items-center gap-2">
               <Button
                 size="sm"
@@ -128,10 +145,12 @@ interface AdminGalleryContainerProps {
   initialImages: DBGalleryImage[];
 }
 
-export function AdminGalleryContainer({ initialImages }: AdminGalleryContainerProps) {
+export function AdminGalleryContainer({
+  initialImages,
+}: AdminGalleryContainerProps) {
   const [images, setImages] = useState<DBGalleryImage[]>(initialImages);
   const [activeCategory, setActiveCategory] = useState<string>("all");
-  
+
   // Upload states
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -203,9 +222,10 @@ export function AdminGalleryContainer({ initialImages }: AdminGalleryContainerPr
     });
   };
 
-  const filteredImages = activeCategory === "all"
-    ? images
-    : images.filter(img => img.category === activeCategory);
+  const filteredImages =
+    activeCategory === "all"
+      ? images
+      : images.filter((img) => img.category === activeCategory);
 
   const categories = [
     { value: "all", label: "All Photos" },
@@ -220,22 +240,30 @@ export function AdminGalleryContainer({ initialImages }: AdminGalleryContainerPr
       <div className="col-span-12 lg:col-span-4 shrink-0">
         <div className="rounded-2xl border border-gold/15 bg-white p-6 shadow-sm relative">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
-          
+
           <div className="mb-6 border-b border-gold/10 pb-3">
-            <h3 
+            <h3
               className="text-base font-light text-neutral-800 uppercase tracking-wider font-display"
               style={{ fontFamily: "var(--font-cormorant)" }}
             >
               Upload Photo
             </h3>
-            <p className="text-[10px] text-neutral-500 mt-1">Publish new visuals to the public website</p>
+            <p className="text-[10px] text-neutral-500 mt-1">
+              Publish new visuals to the public website
+            </p>
           </div>
 
-          <form ref={formRef} onSubmit={handleUploadSubmit} className="space-y-5">
+          <form
+            ref={formRef}
+            onSubmit={handleUploadSubmit}
+            className="space-y-5"
+          >
             {/* File Dropzone */}
             <div className="space-y-2">
-              <Label className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Image File</Label>
-              <div 
+              <Label className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">
+                Image File
+              </Label>
+              <div
                 onClick={() => fileInputRef.current?.click()}
                 className="relative flex min-h-[150px] cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-gold/15 bg-gold/[0.01] p-4 text-center transition-all duration-300 hover:border-gold/35 hover:bg-gold/[0.03] overflow-hidden group shadow-sm"
               >
@@ -258,14 +286,26 @@ export function AdminGalleryContainer({ initialImages }: AdminGalleryContainerPr
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <p className="text-[9px] text-gold font-semibold tracking-widest uppercase">Change Image</p>
+                      <p className="text-[9px] text-gold font-semibold tracking-widest uppercase">
+                        Change Image
+                      </p>
                     </div>
                   </div>
                 ) : (
                   <div className="space-y-2.5">
-                    <Upload className="h-5 w-5 text-gold-600 mx-auto animate-pulse" strokeWidth={1} />
-                    <p className="text-[10px] text-neutral-600">Drag & drop or <span className="text-gold-600 font-medium">browse files</span></p>
-                    <p className="text-[9px] text-neutral-400 font-mono">JPG, PNG, WEBP, GIF up to 5MB</p>
+                    <Upload
+                      className="h-5 w-5 text-gold-600 mx-auto animate-pulse"
+                      strokeWidth={1}
+                    />
+                    <p className="text-[10px] text-neutral-600">
+                      Drag & drop or{" "}
+                      <span className="text-gold-600 font-medium">
+                        browse files
+                      </span>
+                    </p>
+                    <p className="text-[9px] text-neutral-400 font-mono">
+                      JPG, PNG, WEBP, GIF up to 5MB
+                    </p>
                   </div>
                 )}
               </div>
@@ -273,7 +313,12 @@ export function AdminGalleryContainer({ initialImages }: AdminGalleryContainerPr
 
             {/* Alt text */}
             <div className="space-y-2">
-              <Label htmlFor="alt" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Accessibility Text (Alt)</Label>
+              <Label
+                htmlFor="alt"
+                className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold"
+              >
+                Accessibility Text (Alt)
+              </Label>
               <Input
                 id="alt"
                 name="alt"
@@ -285,16 +330,30 @@ export function AdminGalleryContainer({ initialImages }: AdminGalleryContainerPr
 
             {/* Category Select */}
             <div className="space-y-2">
-              <Label htmlFor="category" className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Category Segment</Label>
+              <Label
+                htmlFor="category"
+                className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold"
+              >
+                Category Segment
+              </Label>
               <select
                 id="category"
                 name="category"
                 required
                 className="flex h-10 w-full px-4 rounded-xl border border-gold/15 bg-white text-xs text-neutral-800 focus-visible:border-gold-500 focus-visible:outline-none transition-all"
               >
-                <option value="events" className="bg-white text-neutral-800">Events</option>
-                <option value="venue" className="bg-white text-neutral-800">Venue</option>
-                <option value="facilities" className="bg-white text-neutral-800">Facilities</option>
+                <option value="events" className="bg-white text-neutral-800">
+                  Events
+                </option>
+                <option value="venue" className="bg-white text-neutral-800">
+                  Venue
+                </option>
+                <option
+                  value="facilities"
+                  className="bg-white text-neutral-800"
+                >
+                  Facilities
+                </option>
               </select>
             </div>
 
@@ -337,14 +396,14 @@ export function AdminGalleryContainer({ initialImages }: AdminGalleryContainerPr
       <div className="col-span-12 lg:col-span-8 flex flex-col space-y-6 lg:h-full lg:overflow-hidden">
         {/* Category Tabs */}
         <div className="flex flex-wrap items-center gap-2 border-b border-gold/10 pb-4 shrink-0">
-          {categories.map(cat => (
+          {categories.map((cat) => (
             <button
               key={cat.value}
               onClick={() => setActiveCategory(cat.value)}
-              className={`rounded-full px-4.5 py-1.5 text-[10px] font-semibold uppercase tracking-widest transition-all cursor-pointer ${
+              className={` border border-gold/15 rounded-full px-4.5 py-1.5 text-[10px] font-semibold uppercase tracking-widest transition-all cursor-pointer ${
                 activeCategory === cat.value
                   ? "bg-gold  text-luxury-dark font-semibold shadow-md"
-                  : "bg-white text-neutral-500 border border-gold/15 hover:text-neutral-800 hover:bg-gold/5"
+                  : "bg-white text-neutral-500 hover:text-neutral-800 hover:bg-gold/5"
               }`}
             >
               {cat.label}
@@ -355,13 +414,18 @@ export function AdminGalleryContainer({ initialImages }: AdminGalleryContainerPr
         {/* Gallery Grid */}
         {filteredImages.length === 0 ? (
           <div className="flex h-64 flex-col items-center justify-center rounded-2xl border border-dashed border-gold/20 p-6 text-center bg-white shadow-sm">
-            <ImageIcon className="h-8 w-8 text-neutral-300 mb-2.5" strokeWidth={1} />
-            <p className="text-xs text-neutral-500 uppercase tracking-widest">No Photos Found</p>
+            <ImageIcon
+              className="h-8 w-8 text-neutral-300 mb-2.5"
+              strokeWidth={1}
+            />
+            <p className="text-xs text-neutral-500 uppercase tracking-widest">
+              No Photos Found
+            </p>
           </div>
         ) : (
           <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 flex-1 lg:overflow-y-auto pr-2 custom-scrollbar pb-6">
             <AnimatePresence>
-              {filteredImages.map(img => (
+              {filteredImages.map((img) => (
                 <GalleryCard
                   key={img.id}
                   img={img}
