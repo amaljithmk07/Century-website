@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     "Get in touch with Century Convention Center. Send an inquiry, call us, or chat on WhatsApp to plan your perfect event.",
 };
 
-export default function ContactPage() {
-  const settings = getSettings();
+export default async function ContactPage() {
+  const settings = await getSettings();
   const addressFull = `${settings.addressStreet}, ${settings.addressCity}, ${settings.addressState} ${settings.addressZip}, ${settings.addressCountry}`;
 
   return (

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export const revalidate = 0; // Disable caching to fetch fresh configuration parameters
 
 export default async function AdminSettingsPage() {
-  const settings = getSettings();
+  const settings = await getSettings();
 
   return (
     <div className="space-y-10">

@@ -34,7 +34,7 @@ export async function updateSettingsAction(formData: FormData) {
       return { success: false, error: "Please fill in all core configurations." };
     }
 
-    updateSettings({
+    await updateSettings({
       headline,
       tagline,
       description,

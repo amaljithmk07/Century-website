@@ -10,9 +10,9 @@ import { getGalleryImages, getSettings } from "@/lib/db";
 
 export const revalidate = 0; // Ensure live database data is fetched on request
 
-export default function HomePage() {
-  const images = getGalleryImages();
-  const settings = getSettings();
+export default async function HomePage() {
+  const images = await getGalleryImages();
+  const settings = await getSettings();
 
   return (
     <>

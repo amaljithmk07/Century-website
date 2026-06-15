@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export const revalidate = 0; // Disable cache so the admin always sees real-time uploads
 
 export default async function AdminGalleryPage() {
-  const images = getGalleryImages();
+  const images = await getGalleryImages();
 
   return (
     <div className="lg:h-full flex flex-col space-y-6">

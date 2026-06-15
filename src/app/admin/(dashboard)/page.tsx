@@ -14,8 +14,8 @@ import { Button } from "@/components/ui/button";
 export const revalidate = 0; // Disable static rendering caching to ensure live data
 
 export default async function AdminOverviewPage() {
-  const inquiries = getInquiries();
-  const gallery = getGalleryImages();
+  const inquiries = await getInquiries();
+  const gallery = await getGalleryImages();
 
   // Statistics calculations
   const totalInquiries = inquiries.length;

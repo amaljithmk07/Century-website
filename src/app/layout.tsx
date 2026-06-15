@@ -87,12 +87,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const settings = getSettings();
+  const settings = await getSettings();
 
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>

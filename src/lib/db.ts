@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { supabase, isSupabaseConfigured } from "./supabase";
 
 // Define TypeScript interfaces for our database structure
 export interface DBGalleryImage {
@@ -213,12 +214,76 @@ export function writeDB(data: DatabaseSchema): void {
 }
 
 // ── GALLERY API ──
-export function getGalleryImages(): DBGalleryImage[] {
+export async function getGalleryImages(): Promise<DBGalleryImage[]> {
+  try {
+    if (isSupabaseConfigured && supabase) {
+      const { data, error } = await supabase
+        .from("gallery_images")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Supabase error fetching gallery:", error);
+        return getLocalGalleryImages();
+      }
+
+      return (data || []).map(img => ({
+        id: img.id,
+        src: img.src,
+        alt: img.alt,
+        category: img.category as "events" | "venue" | "facilities",
+        width: img.width,
+        height: img.height,
+        createdAt: img.created_at,
+      }));
+    }
+  } catch (err) {
+    console.error("Network or connection error fetching gallery from Supabase:", err);
+  }
+  return getLocalGalleryImages();
+}
+
+function getLocalGalleryImages(): DBGalleryImage[] {
   const db = getDB();
   return db.gallery.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 }
 
-export function addGalleryImage(image: Omit<DBGalleryImage, "id" | "createdAt">): DBGalleryImage {
+export async function addGalleryImage(image: Omit<DBGalleryImage, "id" | "createdAt">): Promise<DBGalleryImage> {
+  try {
+    if (isSupabaseConfigured && supabase) {
+      const newImg = {
+        id: `img-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+        src: image.src,
+        alt: image.alt,
+        category: image.category,
+        width: image.width,
+        height: image.height,
+        created_at: new Date().toISOString(),
+      };
+
+      const { error } = await supabase
+        .from("gallery_images")
+        .insert(newImg);
+
+      if (error) {
+        console.error("Supabase error adding image:", error);
+        throw error;
+      }
+
+      return {
+        id: newImg.id,
+        src: newImg.src,
+        alt: newImg.alt,
+        category: newImg.category,
+        width: newImg.width,
+        height: newImg.height,
+        createdAt: newImg.created_at,
+      };
+    }
+  } catch (err) {
+    console.error("Network or connection error adding image to Supabase:", err);
+  }
+
   const db = getDB();
   const newImg: DBGalleryImage = {
     ...image,
@@ -230,7 +295,37 @@ export function addGalleryImage(image: Omit<DBGalleryImage, "id" | "createdAt">)
   return newImg;
 }
 
-export function deleteGalleryImage(id: string): boolean {
+export async function deleteGalleryImage(id: string): Promise<boolean> {
+  try {
+    if (isSupabaseConfigured && supabase) {
+      // Fetch image details first to delete from storage if needed
+      const { data: imgData } = await supabase
+        .from("gallery_images")
+        .select("src")
+        .eq("id", id)
+        .single();
+
+      if (imgData && imgData.src.includes("/storage/v1/object/public/gallery/")) {
+        const parts = imgData.src.split("/storage/v1/object/public/gallery/");
+        const pathName = parts[parts.length - 1];
+        await supabase.storage.from("gallery").remove([pathName]);
+      }
+
+      const { error } = await supabase
+        .from("gallery_images")
+        .delete()
+        .eq("id", id);
+
+      if (error) {
+        console.error("Supabase error deleting image:", error);
+        return false;
+      }
+      return true;
+    }
+  } catch (err) {
+    console.error("Network or connection error deleting image from Supabase:", err);
+  }
+
   const db = getDB();
   const index = db.gallery.findIndex((img) => img.id === id);
   if (index === -1) return false;
@@ -255,12 +350,88 @@ export function deleteGalleryImage(id: string): boolean {
 }
 
 // ── INQUIRIES API ──
-export function getInquiries(): DBInquiry[] {
+export async function getInquiries(): Promise<DBInquiry[]> {
+  try {
+    if (isSupabaseConfigured && supabase) {
+      const { data, error } = await supabase
+        .from("inquiries")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Supabase error fetching inquiries:", error);
+        return getLocalInquiries();
+      }
+
+      return (data || []).map(inq => ({
+        id: inq.id,
+        name: inq.name,
+        email: inq.email,
+        phone: inq.phone,
+        eventType: inq.event_type,
+        eventDate: inq.event_date || undefined,
+        guestCount: inq.guest_count || undefined,
+        message: inq.message,
+        status: inq.status as DBInquiry["status"],
+        type: inq.type as DBInquiry["type"],
+        createdAt: inq.created_at,
+      }));
+    }
+  } catch (err) {
+    console.error("Network or connection error fetching inquiries from Supabase:", err);
+  }
+  return getLocalInquiries();
+}
+
+function getLocalInquiries(): DBInquiry[] {
   const db = getDB();
   return db.inquiries.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 }
 
-export function addInquiry(inquiry: Omit<DBInquiry, "id" | "createdAt" | "status">): DBInquiry {
+export async function addInquiry(inquiry: Omit<DBInquiry, "id" | "createdAt" | "status">): Promise<DBInquiry> {
+  try {
+    if (isSupabaseConfigured && supabase) {
+      const newInq = {
+        id: `inq-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+        name: inquiry.name,
+        email: inquiry.email,
+        phone: inquiry.phone,
+        event_type: inquiry.eventType,
+        event_date: inquiry.eventDate || null,
+        guest_count: inquiry.guestCount || null,
+        message: inquiry.message,
+        status: "new",
+        type: inquiry.type,
+        created_at: new Date().toISOString(),
+      };
+
+      const { error } = await supabase
+        .from("inquiries")
+        .insert(newInq);
+
+      if (error) {
+        console.error("Supabase error adding inquiry:", error);
+        throw error;
+      }
+
+      return {
+        id: newInq.id,
+        name: newInq.name,
+        email: newInq.email,
+        phone: newInq.phone,
+        eventType: newInq.event_type,
+        eventDate: newInq.event_date || undefined,
+        guestCount: newInq.guest_count || undefined,
+        message: newInq.message,
+        status: newInq.status as DBInquiry["status"],
+        type: newInq.type as DBInquiry["type"],
+        createdAt: newInq.created_at,
+      };
+    }
+  } catch (err) {
+    console.error("Network or connection error adding inquiry to Supabase:", err);
+  }
+
   const db = getDB();
   const newInq: DBInquiry = {
     ...inquiry,
@@ -273,7 +444,24 @@ export function addInquiry(inquiry: Omit<DBInquiry, "id" | "createdAt" | "status
   return newInq;
 }
 
-export function updateInquiryStatus(id: string, status: DBInquiry["status"]): boolean {
+export async function updateInquiryStatus(id: string, status: DBInquiry["status"]): Promise<boolean> {
+  try {
+    if (isSupabaseConfigured && supabase) {
+      const { error } = await supabase
+        .from("inquiries")
+        .update({ status })
+        .eq("id", id);
+
+      if (error) {
+        console.error("Supabase error updating inquiry status:", error);
+        return false;
+      }
+      return true;
+    }
+  } catch (err) {
+    console.error("Network or connection error updating inquiry status in Supabase:", err);
+  }
+
   const db = getDB();
   const inq = db.inquiries.find((i) => i.id === id);
   if (!inq) return false;
@@ -282,7 +470,24 @@ export function updateInquiryStatus(id: string, status: DBInquiry["status"]): bo
   return true;
 }
 
-export function deleteInquiry(id: string): boolean {
+export async function deleteInquiry(id: string): Promise<boolean> {
+  try {
+    if (isSupabaseConfigured && supabase) {
+      const { error } = await supabase
+        .from("inquiries")
+        .delete()
+        .eq("id", id);
+
+      if (error) {
+        console.error("Supabase error deleting inquiry:", error);
+        return false;
+      }
+      return true;
+    }
+  } catch (err) {
+    console.error("Network or connection error deleting inquiry from Supabase:", err);
+  }
+
   const db = getDB();
   const index = db.inquiries.findIndex((i) => i.id === id);
   if (index === -1) return false;
@@ -292,12 +497,114 @@ export function deleteInquiry(id: string): boolean {
 }
 
 // ── SETTINGS API ──
-export function getSettings(): DBSettings {
+export async function getSettings(): Promise<DBSettings> {
+  try {
+    if (isSupabaseConfigured && supabase) {
+      const { data, error } = await supabase
+        .from("settings")
+        .select("*")
+        .eq("id", "site_config")
+        .maybeSingle();
+
+      if (error) {
+        console.error("Supabase error fetching settings:", error);
+        return getLocalSettings();
+      }
+
+      if (!data) {
+        await seedSupabaseSettings();
+        return DEFAULT_SETTINGS;
+      }
+
+      return {
+        name: data.name,
+        headline: data.headline,
+        tagline: data.tagline,
+        description: data.description,
+        phone: data.phone,
+        phoneRaw: data.phone_raw,
+        email: data.email,
+        whatsapp: data.whatsapp,
+        addressStreet: data.address_street,
+        addressCity: data.address_city,
+        addressState: data.address_state,
+        addressZip: data.address_zip,
+        addressCountry: data.address_country,
+        businessHours: data.business_hours || DEFAULT_SETTINGS.businessHours,
+      };
+    }
+  } catch (err) {
+    console.error("Network or connection error fetching settings from Supabase:", err);
+  }
+  return getLocalSettings();
+}
+
+async function seedSupabaseSettings(): Promise<void> {
+  try {
+    if (!supabase) return;
+    const seedData = {
+      id: "site_config",
+      name: DEFAULT_SETTINGS.name,
+      headline: DEFAULT_SETTINGS.headline,
+      tagline: DEFAULT_SETTINGS.tagline,
+      description: DEFAULT_SETTINGS.description,
+      phone: DEFAULT_SETTINGS.phone,
+      phone_raw: DEFAULT_SETTINGS.phoneRaw,
+      email: DEFAULT_SETTINGS.email,
+      whatsapp: DEFAULT_SETTINGS.whatsapp,
+      address_street: DEFAULT_SETTINGS.addressStreet,
+      address_city: DEFAULT_SETTINGS.addressCity,
+      address_state: DEFAULT_SETTINGS.addressState,
+      address_zip: DEFAULT_SETTINGS.addressZip,
+      address_country: DEFAULT_SETTINGS.addressCountry,
+      business_hours: DEFAULT_SETTINGS.businessHours,
+    };
+    await supabase.from("settings").insert(seedData);
+  } catch (err) {
+    console.error("Failed to seed Supabase settings:", err);
+  }
+}
+
+function getLocalSettings(): DBSettings {
   const db = getDB();
   return db.settings || DEFAULT_SETTINGS;
 }
 
-export function updateSettings(settings: Partial<DBSettings>): DBSettings {
+export async function updateSettings(settings: Partial<DBSettings>): Promise<DBSettings> {
+  try {
+    if (isSupabaseConfigured && supabase) {
+      const updateData: Record<string, unknown> = {};
+      if (settings.name !== undefined) updateData.name = settings.name;
+      if (settings.headline !== undefined) updateData.headline = settings.headline;
+      if (settings.tagline !== undefined) updateData.tagline = settings.tagline;
+      if (settings.description !== undefined) updateData.description = settings.description;
+      if (settings.phone !== undefined) updateData.phone = settings.phone;
+      if (settings.phoneRaw !== undefined) updateData.phone_raw = settings.phoneRaw;
+      if (settings.email !== undefined) updateData.email = settings.email;
+      if (settings.whatsapp !== undefined) updateData.whatsapp = settings.whatsapp;
+      if (settings.addressStreet !== undefined) updateData.address_street = settings.addressStreet;
+      if (settings.addressCity !== undefined) updateData.address_city = settings.addressCity;
+      if (settings.addressState !== undefined) updateData.address_state = settings.addressState;
+      if (settings.addressZip !== undefined) updateData.address_zip = settings.addressZip;
+      if (settings.addressCountry !== undefined) updateData.address_country = settings.addressCountry;
+      if (settings.businessHours !== undefined) updateData.business_hours = settings.businessHours;
+
+      const { error } = await supabase
+        .from("settings")
+        .update(updateData)
+        .eq("id", "site_config");
+
+      if (error) {
+        console.error("Supabase error updating settings:", error);
+        throw error;
+      }
+
+      return getSettings();
+    }
+  } catch (err) {
+    console.error("Network or connection error updating settings in Supabase:", err);
+  }
+
   const db = getDB();
   db.settings = {
     ...db.settings,

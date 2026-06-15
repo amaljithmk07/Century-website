@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export const revalidate = 0; // Disable caching to fetch fresh database entries on load
 
 export default async function AdminInquiriesPage() {
-  const inquiries = getInquiries();
+  const inquiries = await getInquiries();
 
   return (
     <div className="lg:h-full flex flex-col space-y-6">

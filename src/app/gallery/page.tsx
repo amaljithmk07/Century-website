@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     "Browse our gallery of weddings, corporate events, and venue photos at Century Convention Center.",
 };
 
-export default function GalleryPage() {
-  const images = getGalleryImages();
+export default async function GalleryPage() {
+  const images = await getGalleryImages();
 
   return (
     <>

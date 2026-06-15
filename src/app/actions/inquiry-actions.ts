@@ -8,7 +8,7 @@ import { updateInquiryStatus, deleteInquiry, type DBInquiry } from "@/lib/db";
  */
 export async function changeInquiryStatusAction(id: string, status: DBInquiry["status"]) {
   try {
-    const success = updateInquiryStatus(id, status);
+    const success = await updateInquiryStatus(id, status);
     if (!success) {
       return { success: false, error: "Inquiry not found." };
     }
@@ -27,7 +27,7 @@ export async function changeInquiryStatusAction(id: string, status: DBInquiry["s
  */
 export async function deleteInquiryAction(id: string) {
   try {
-    const success = deleteInquiry(id);
+    const success = await deleteInquiry(id);
     if (!success) {
       return { success: false, error: "Inquiry not found." };
     }

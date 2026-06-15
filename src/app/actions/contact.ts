@@ -30,7 +30,7 @@ export async function submitContactForm(data: ContactFormData) {
 
   // 1. Log inquiry in database first
   try {
-    addInquiry({
+    await addInquiry({
       name,
       email,
       phone,
@@ -45,7 +45,7 @@ export async function submitContactForm(data: ContactFormData) {
   }
 
   // 2. Fetch email contact coordinates from settings
-  const settings = getSettings();
+  const settings = await getSettings();
   const contactEmail = settings.email || process.env.CONTACT_EMAIL || "info@centuryconvention.com";
 
   const emailHtml = `
@@ -100,7 +100,7 @@ export async function submitWhatsAppInquiryAction(data: {
 }) {
   try {
     // 1. Save to database
-    addInquiry({
+    await addInquiry({
       name: data.name,
       email: data.email || "",
       phone: data.phone,
@@ -112,7 +112,7 @@ export async function submitWhatsAppInquiryAction(data: {
     });
 
     // 2. Fetch target WhatsApp number from database settings
-    const settings = getSettings();
+    const settings = await getSettings();
     const targetWhatsApp = settings.whatsapp || "919876543210";
 
     // 3. Construct message
