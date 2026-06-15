@@ -218,7 +218,7 @@ export default async function AdminOverviewPage() {
                           </span>
                         </td>
                         <td className="py-3 text-right text-[10px] text-neutral-400">
-                          {new Date(inq.createdAt).toLocaleDateString(undefined, {
+                          {new Date(inq.createdAt).toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric",
                           })}

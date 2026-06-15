@@ -56,10 +56,10 @@ export function Navbar() {
                   "relative py-1 text-[18px] font-display font-medium tracking-wide transition-all duration-300",
                   isActive
                     ? showGlass
-                      ? "text-burgundy"
+                      ? "text-gold-dark"
                       : "text-gold"
                     : showGlass
-                      ? "text-text-secondary hover:text-burgundy"
+                      ? "text-text-secondary hover:text-gold-dark"
                       : "text-white/75 hover:text-white",
                   isAnyHovered && !isThisHovered && "opacity-45 blur-[0.3px]"
                 )}
@@ -86,7 +86,7 @@ export function Navbar() {
         <button
           className={cn(
             "lg:hidden p-2 transition-colors",
-            showGlass ? "text-burgundy" : "text-white",
+            showGlass ? "text-luxury-dark" : "text-white",
           )}
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label={isMobileOpen ? "Close menu" : "Open menu"}
@@ -116,8 +116,8 @@ export function Navbar() {
                   className={cn(
                     "rounded-xl px-4 py-3.5 text-sm font-medium transition-colors",
                     pathname === link.href
-                      ? "bg-cream text-burgundy"
-                      : "text-text-secondary hover:bg-cream/60 hover:text-burgundy",
+                      ? "bg-cream text-luxury-dark"
+                      : "text-text-secondary hover:bg-cream/60 hover:text-luxury-dark",
                   )}
                 >
                   {link.label}

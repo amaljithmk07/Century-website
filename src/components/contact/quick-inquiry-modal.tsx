@@ -80,7 +80,7 @@ export function QuickInquiryModal({ isOpen, onClose }: QuickInquiryModalProps) {
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-xl border border-gold/15 bg-white p-0 overflow-hidden rounded-2xl shadow-2xl">
         {/* Header decoration */}
-        <div className="bg-gradient-to-r from-burgundy to-burgundy-dark p-6 text-white relative">
+        <div className="bg-gradient-to-r from-luxury-dark to-luxury-dark-soft p-6 text-white relative">
           <button
             onClick={onClose}
             className="absolute right-4 top-4 rounded-lg bg-black/10 p-1.5 text-white/70 hover:bg-black/20 hover:text-white transition-colors"
@@ -117,7 +117,7 @@ export function QuickInquiryModal({ isOpen, onClose }: QuickInquiryModalProps) {
                 <div className="rounded-full bg-emerald-500/10 p-4 border border-emerald-500/20 mb-4 animate-bounce">
                   <CheckCircle className="h-10 w-10 text-emerald-500" strokeWidth={1.25} />
                 </div>
-                <h4 className="text-lg font-medium text-maroon-950 mb-1">Inquiry Recorded!</h4>
+                <h4 className="text-lg font-medium text-luxury-dark mb-1">Inquiry Recorded!</h4>
                 <p className="text-sm text-text-secondary max-w-xs leading-relaxed">
                   Redirecting to WhatsApp to complete your booking chat...
                 </p>
@@ -233,7 +233,7 @@ export function QuickInquiryModal({ isOpen, onClose }: QuickInquiryModalProps) {
                     </>
                   ) : (
                     <>
-                      <MessageCircle className="h-4 w-4 text-burgundy" fill="currentColor" strokeWidth={0} />
+                      <MessageCircle className="h-4 w-4 text-luxury-dark" fill="currentColor" strokeWidth={0} />
                       Start WhatsApp Inquiry
                     </>
                   )}

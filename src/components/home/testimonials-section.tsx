@@ -57,7 +57,7 @@ export function TestimonialsSection() {
                     {testimonial.quote}
                   </p>
                   <div className="border-t border-gold/10 pt-6">
-                    <p className="text-sm font-medium tracking-wide text-burgundy">
+                    <p className="text-sm font-medium tracking-wide text-luxury-dark">
                       {testimonial.author}
                     </p>
                     <p className="label-luxury mt-1 text-gold/80">{testimonial.event}</p>

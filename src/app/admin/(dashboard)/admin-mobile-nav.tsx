@@ -92,11 +92,11 @@ export function AdminMobileNav({ logoutAction }: AdminMobileNavProps) {
                       className={cn(
                         "flex items-center gap-3.5 rounded-xl px-4 py-3.5 text-[14px] font-medium tracking-wide transition-all duration-300",
                         isActive
-                          ? "bg-gold text-burgundy shadow-lg shadow-gold/10 font-semibold"
+                          ? "bg-gold text-luxury-dark shadow-lg shadow-gold/10 font-semibold"
                           : "text-neutral-600 hover:bg-gold/5 hover:text-gold-600"
                       )}
                     >
-                      <item.icon className={cn("h-4 w-4", isActive ? "text-burgundy" : "text-gold-600/80")} strokeWidth={1.5} />
+                      <item.icon className={cn("h-4 w-4", isActive ? "text-luxury-dark" : "text-gold-600/80")} strokeWidth={1.5} />
                       {item.label}
                     </Link>
                   );

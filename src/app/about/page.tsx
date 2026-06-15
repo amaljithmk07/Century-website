@@ -74,7 +74,7 @@ export default function AboutPage() {
             <FadeIn>
               <div className="premium-card p-6 sm:p-10 lg:p-12">
                 <Eye className="mb-5 h-7 w-7 text-gold-500" strokeWidth={1.25} />
-                <h3 className="heading-sub mb-5 text-maroon-950">Our Vision</h3>
+                <h3 className="heading-sub mb-5 text-luxury-dark">Our Vision</h3>
                 <p className="body-luxury text-sm">
                   To be the most trusted and admired event venue, setting the standard
                   for luxury hospitality and creating spaces where life&apos;s most
@@ -85,7 +85,7 @@ export default function AboutPage() {
             <FadeIn delay={0.15}>
               <div className="premium-card p-6 sm:p-10 lg:p-12">
                 <Target className="mb-5 h-7 w-7 text-gold-500" strokeWidth={1.25} />
-                <h3 className="heading-sub mb-5 text-maroon-950">Our Mission</h3>
+                <h3 className="heading-sub mb-5 text-luxury-dark">Our Mission</h3>
                 <p className="body-luxury text-sm">
                   To deliver exceptional event experiences through impeccable service,
                   world-class facilities, and personalized attention — ensuring every

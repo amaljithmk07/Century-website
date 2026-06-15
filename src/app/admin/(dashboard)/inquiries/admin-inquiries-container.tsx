@@ -215,7 +215,7 @@ export function AdminInquiriesContainer({ initialInquiries }: AdminInquiriesCont
                       <h4 className="text-xs font-semibold text-neutral-800 truncate max-w-[150px] uppercase tracking-wider">{inq.name}</h4>
                     </div>
                     <span className="text-[9px] text-neutral-400 shrink-0 font-mono">
-                      {new Date(inq.createdAt).toLocaleDateString(undefined, {
+                      {new Date(inq.createdAt).toLocaleDateString("en-US", {
                         month: "short",
                         day: "numeric",
                       })}
@@ -322,7 +322,7 @@ export function AdminInquiriesContainer({ initialInquiries }: AdminInquiriesCont
                       <Calendar className="h-3.5 w-3.5 text-gold-600 shrink-0" strokeWidth={1.25} />
                       <span className="font-mono">
                         {activeInquiry.eventDate ? (
-                          new Date(activeInquiry.eventDate).toLocaleDateString(undefined, {
+                          new Date(activeInquiry.eventDate).toLocaleDateString("en-US", {
                             month: "short",
                             day: "numeric",
                             year: "numeric"
@@ -354,7 +354,7 @@ export function AdminInquiriesContainer({ initialInquiries }: AdminInquiriesCont
                 {/* Time Indicator */}
                 <div className="ml-auto flex items-center gap-1.5 text-xs text-neutral-400 font-mono">
                   <Clock className="h-3.5 w-3.5" strokeWidth={1.25} />
-                  <span>{new Date(activeInquiry.createdAt).toLocaleString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}</span>
+                  <span>{new Date(activeInquiry.createdAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}</span>
                 </div>
               </div>
 
@@ -466,7 +466,7 @@ export function AdminInquiriesContainer({ initialInquiries }: AdminInquiriesCont
                         onClick={() => handleStatusChange(activeInquiry.id, st as DBInquiry["status"])}
                         className={`rounded-lg px-2.5 py-1 text-[9px] font-semibold uppercase tracking-wider transition-all ${
                           activeInquiry.status === st
-                            ? "bg-gold text-burgundy"
+                            ? "bg-gold text-luxury-dark"
                             : "bg-neutral-50 text-neutral-600 border border-neutral-200 hover:bg-neutral-100 hover:text-neutral-800"
                         }`}
                         disabled={isPending}
@@ -505,7 +505,7 @@ export function AdminInquiriesContainer({ initialInquiries }: AdminInquiriesCont
                       <p className="text-[10px] text-neutral-500 uppercase tracking-widest font-semibold">Preferred Date</p>
                       <p className="text-xs font-medium text-neutral-800 font-mono">
                         {activeInquiry.eventDate ? (
-                          new Date(activeInquiry.eventDate).toLocaleDateString(undefined, {
+                          new Date(activeInquiry.eventDate).toLocaleDateString("en-US", {
                             weekday: "short",
                             month: "long",
                             day: "numeric",
@@ -562,7 +562,7 @@ export function AdminInquiriesContainer({ initialInquiries }: AdminInquiriesCont
                 {/* Received Time stamp */}
                 <div className="flex items-center gap-2 text-xs text-neutral-500 justify-end font-mono">
                   <Clock className="h-3.5 w-3.5" />
-                  <span>Received {new Date(activeInquiry.createdAt).toLocaleString()}</span>
+                  <span>Received {new Date(activeInquiry.createdAt).toLocaleString("en-US")}</span>
                 </div>
               </div>
 

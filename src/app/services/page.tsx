@@ -42,7 +42,7 @@ export default function ServicesPage() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/80 via-maroon-950/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-luxury-dark/80 via-luxury-dark/20 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
                       <div className="icon-frame mb-4 h-11 w-11">
                         <service.icon className="h-5 w-5 text-gold-600" strokeWidth={1.25} />

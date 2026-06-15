@@ -82,7 +82,7 @@ function GalleryCard({
 
         <div className="text-[8px] text-neutral-400 uppercase tracking-wider font-mono mt-auto pt-2 border-t border-neutral-100 flex justify-between">
           <span>ID: {img.id.slice(-8)}</span>
-          <span>{new Date(img.createdAt).toLocaleDateString(undefined, { month: "short", day: "numeric" })}</span>
+          <span>{new Date(img.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}</span>
         </div>
       </div>
 
@@ -343,7 +343,7 @@ export function AdminGalleryContainer({ initialImages }: AdminGalleryContainerPr
               onClick={() => setActiveCategory(cat.value)}
               className={`rounded-full px-4.5 py-1.5 text-[10px] font-semibold uppercase tracking-widest transition-all cursor-pointer ${
                 activeCategory === cat.value
-                  ? "bg-gold  text-burgundy font-semibold shadow-md"
+                  ? "bg-gold  text-luxury-dark font-semibold shadow-md"
                   : "bg-white text-neutral-500 border border-gold/15 hover:text-neutral-800 hover:bg-gold/5"
               }`}
             >

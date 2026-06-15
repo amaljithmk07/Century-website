@@ -30,7 +30,7 @@ export default async function ContactPage() {
           <div className="grid gap-10 lg:grid-cols-5 lg:gap-20">
             <FadeIn className="lg:col-span-3">
               <span className="label-luxury mb-2 sm:mb-4 block">Inquiry</span>
-              <h2 className="heading-sub mb-3 sm:mb-4 text-maroon-950">Send a Message</h2>
+              <h2 className="heading-sub mb-3 sm:mb-4 text-luxury-dark">Send a Message</h2>
               <p className="body-luxury mb-6 sm:mb-10 max-w-md">
                 Fill out the form below and our team will respond within 24 hours.
               </p>
@@ -41,7 +41,7 @@ export default async function ContactPage() {
               <div className="premium-card space-y-6 sm:space-y-10 p-6 sm:p-10">
                 <div>
                   <span className="label-luxury mb-6 block">Reach Us</span>
-                  <h2 className="heading-sub mb-8 text-maroon-950">Contact Information</h2>
+                  <h2 className="heading-sub mb-8 text-luxury-dark">Contact Information</h2>
                   <ul className="space-y-7">
                     <li className="flex items-start gap-4">
                       <div className="icon-frame h-10 w-10 shrink-0">

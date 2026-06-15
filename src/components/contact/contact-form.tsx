@@ -67,7 +67,7 @@ export function ContactForm() {
     return (
       <div className="premium-card flex flex-col items-center justify-center p-6 sm:p-14 text-center">
         <CheckCircle className="mb-6 h-10 w-10 text-gold-500" strokeWidth={1.25} />
-        <h3 className="heading-sub mb-3 text-maroon-950">Thank You</h3>
+        <h3 className="heading-sub mb-3 text-luxury-dark">Thank You</h3>
         <p className="body-luxury max-w-sm">
           Your inquiry has been received. Our team will get back to you within 24 hours.
         </p>

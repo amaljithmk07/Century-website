@@ -54,7 +54,7 @@ export default function FacilitiesPage() {
                     <div className="icon-frame mb-6 h-14 w-14">
                       <facility.icon className="h-6 w-6 text-gold-600" strokeWidth={1.25} />
                     </div>
-                    <h3 className="heading-sub mb-5 text-maroon-950">{facility.title}</h3>
+                    <h3 className="heading-sub mb-5 text-luxury-dark">{facility.title}</h3>
                     <p className="body-luxury">{facility.description}</p>
                     <div className="divider-gold mt-8 !mx-0 !w-12" />
                   </div>
