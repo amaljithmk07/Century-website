@@ -235,7 +235,7 @@ export function AdminGalleryContainer({
   ];
 
   return (
-    <div className="grid gap-8 lg:grid-cols-12 lg:h-full lg:overflow-hidden">
+    <div className="grid gap-8 lg:grid-cols-12 lg:h-full">
       {/* Upload Column (Desktop: 4 columns) */}
       <div className="col-span-12 lg:col-span-4 shrink-0">
         <div className="rounded-2xl border border-gold/15 bg-white p-6 shadow-sm relative">
